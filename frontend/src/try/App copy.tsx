@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import { Counter } from "./try/Counter";
-import { TextField } from "./try/TextField";
+import { Counter } from "./Counter";
+import { TextField } from "./TextField";
 
 // function App() {
 const App: React.FC = () => {

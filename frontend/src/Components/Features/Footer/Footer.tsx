@@ -1,5 +1,5 @@
 import React from 'react'
-import * as FStyle from '../styles/FooterStyle';
+import * as FStyle from './FooterStyle';
 
 interface FooterProps {
 

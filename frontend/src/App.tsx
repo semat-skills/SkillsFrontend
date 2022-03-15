@@ -1,11 +1,8 @@
 import React from "react";
 import "./App.css";
-import { Footer } from "./Components/comps/Footer";
-import { Header } from "./Components/comps/Header";
-import { MainContainer } from "./Components/comps/MainContainer";
-import { MainPage } from "./Components/comps/MainPage";
-
-
+import { Footer } from "./Components/Features/Footer/Footer";
+import { Header } from "./Components/Features/Header/Header";
+import { MainContainer } from "./Components/Pages/HomePage/HomePage";
 
 const App: React.FC = () => {
 
@@ -14,7 +11,6 @@ const App: React.FC = () => {
     <>
     {/* <div className="App"> */}
     <MainContainer/>
-     
     {/* </div> */}
     </>
   );
