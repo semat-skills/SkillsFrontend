@@ -1,17 +1,23 @@
 import React from "react";
-import "./App.css";
 import { Footer } from "./Components/Features/Footer/Footer";
-import { Header } from "./Components/Features/Header/Header";
-import { MainContainer } from "./Components/Pages/HomePage/HomePage";
+import MainContainer from "./Components/Pages/HomePage/HomePage";
+import { AppTail } from "./AppTail";
+import Navbar from "./Components/Features/Header/IndexNavbar";
+
+
+// import { render } from "react-dom";
+// import {
+//   BrowserRouter,
+//   Routes,
+//   Route,
+// } from "react-router-dom";
 
 const App: React.FC = () => {
 
  
   return (
     <>
-    {/* <div className="App"> */}
     <MainContainer/>
-    {/* </div> */}
     </>
   );
 };

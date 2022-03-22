@@ -1,5 +1,5 @@
 import React from 'react'
-import * as S from './HeaderStyle'
+import * as S from './HeaderStyle' //change it
 import { Logo } from '../Logo/Logo'
 import { Menu } from '../Menu/Menu';
 
@@ -8,7 +8,7 @@ interface HeaderProps {
 
 }
 
-export const Header: React.FC<HeaderProps> = ({}) => {
+const Header: React.FC<HeaderProps> = ({}) => {
         return (
          //   <div className='nav'> 
             <S.HeaderStyle>
@@ -22,3 +22,4 @@ export const Header: React.FC<HeaderProps> = ({}) => {
         );
 }
 
+export default Header;

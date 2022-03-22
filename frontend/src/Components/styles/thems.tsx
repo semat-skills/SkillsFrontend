@@ -9,3 +9,4 @@ export const webColors = {
     color5: '#ecf9fc',
     color6: 'white',
 };
+

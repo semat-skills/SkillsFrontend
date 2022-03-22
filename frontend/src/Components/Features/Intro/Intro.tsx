@@ -1,20 +1,28 @@
 import React from 'react'
-import {BigTitle} from './BigTitle/BigTitle'
-import{IntroButton } from './IntroButton/IntroButton'
+import{Button } from './Button/Button'
 import {IntroDiv} from './IntoStyle'
+import { IntroPhoto } from './IntroPhoto/IntroPhoto'
+import HeadingD from './HeadingD/HeadingD'
+
 
 interface IntroProps {
 
 }
 
-export const Intro: React.FC<IntroProps> = ({}) => {
+const Intro: React.FC<IntroProps> = ({}) => {
         return (
             <IntroDiv>
-                <BigTitle></BigTitle>
+                <div>
+                <HeadingD></HeadingD>
             
-                <IntroButton></IntroButton>
+                <Button></Button>
+                </div>
+              
+              <IntroPhoto></IntroPhoto>
+           
 
             </IntroDiv>
         );
 }
 
+export default Intro;
