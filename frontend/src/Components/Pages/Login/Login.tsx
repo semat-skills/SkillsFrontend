@@ -1,7 +1,7 @@
 import React from "react";
 import * as Yup from "yup";
 import { withFormik, FormikProps, FormikErrors, Form, Field } from "formik";
-
+import { useNavigate } from "react-router-dom";
 import { LoginForm, LoginStyle } from "./LoginStyled";
 import { Button } from '../../Features/Intro/Button/Button'
 
@@ -39,7 +39,7 @@ export const Login: React.FC<LoginProps> = ({}) => {
               adipisicing.
             </p>
 
-          <MyForm message="Sign up" />
+          <MyForm message="Login" />
           </div>
 
 

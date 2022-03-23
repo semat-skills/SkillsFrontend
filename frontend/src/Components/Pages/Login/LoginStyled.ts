@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import photo from "./h4.jpg";
+import photo from "../../Features/images/h4.jpg";
 
 // export const LoginStyle = styled.div`
   /* display: flex;
@@ -49,7 +49,7 @@ export const LoginForm = styled.div`
   margin-top: 40px;
   align-items: center;
   justify-content: center;
-  
+  margin-bottom: 40px;
   @media (min-width: 1024px) {
     flex: 1;
     height: 700px;
@@ -58,13 +58,6 @@ export const LoginForm = styled.div`
 ////////////////////////////////////////////////////////////
 
 export const LoginStyle = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  @media (min-width: 1024px) {
-    flex-direction: row-reverse; */
-
 
   .ImgFrame {
     /* background-image: url(${photo}); */

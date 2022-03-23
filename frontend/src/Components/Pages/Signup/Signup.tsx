@@ -1,7 +1,7 @@
 import React from "react";
 import * as Yup from "yup";
 import { withFormik, FormikProps, FormikErrors, Form, Field } from "formik";
-
+import { useNavigate } from "react-router-dom";
 import { SignupForm, SignUpStyle } from "./Signup.style";
 import { Button } from '../../Features/Intro/Button/Button'
 
@@ -19,7 +19,7 @@ interface OtherProps {
 }
 
 
-export const Login: React.FC<SignupProps> = ({}) => {
+export const Signup: React.FC<SignupProps> = ({}) => {
   return (
     <SignUpStyle
     className="d-lg-flex half"
@@ -56,7 +56,6 @@ export const Login: React.FC<SignupProps> = ({}) => {
   const { touched, errors, isSubmitting, message } = props;
   return (
     <Form>
-      {/* <h1>{message}</h1> */}
 
       <div className="form-group first">
                 <label >Full Name</label>
@@ -84,7 +83,7 @@ export const Login: React.FC<SignupProps> = ({}) => {
   
   
       <div className="d-flex mb-5 align-items-center">
-                <label className="control control--checkbox mb-0"><span className="caption">Remember me</span>
+                <label className="control control--checkbox mb-0">
                   <input type="checkbox" 
                   // checked="checked"
                   />

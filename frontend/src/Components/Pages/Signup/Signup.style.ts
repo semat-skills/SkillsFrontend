@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import photo from "./h3.jpeg";
+import photo from "../../Features/images/h4.jpg";
 
 export const SignupForm = styled.div`
-  /* background-color: skyblue;
-
+   /* background-color: skyblue; */
+   margin-top: 40px;
   align-items: center;
   justify-content: center;
-  
+  margin-bottom: 40px;
   @media (min-width: 1024px) {
     flex: 1;
     height: 700px;
-  } */
+  } 
 `;
 ////////////////////////////////////////////////////////////
 
@@ -18,7 +18,9 @@ export const SignUpStyle = styled.div`
 
   .ImgFrame {
     /* background-image: url(${photo}); */
-    background-color: blue;
+    background-color: skyblue;
+    background-color: skyblue;
+    height: 292px;
   }
   //////////////////////////////////////////
   body {
@@ -165,4 +167,35 @@ a {
   background-color: #7e0cf5;
   opacity: .2; }
 
+
+.btn{
+
+align-items: center;
+padding: 10px;
+/* Dark gray */
+
+background: #5A5A5A;
+width: 145px;
+height: 49px;
+left: 24px;
+top: 368px;
+
+box-shadow: 0px 11.6402px 46.5608px rgba(0, 0, 0, 0.06);
+border-radius: 6px;
+
+/// text
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 23px;
+
+color: #FFFFFF;
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 10px;
+  }
 `;
