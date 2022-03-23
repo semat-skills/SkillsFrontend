@@ -2,8 +2,8 @@ import React from "react";
 import * as Yup from "yup";
 import { withFormik, FormikProps, FormikErrors, Form, Field } from "formik";
 import { useNavigate } from "react-router-dom";
-import { SignupForm, SignUpStyle } from "./Signup.style";
-import { Button } from '../../Features/Intro/Button/Button'
+import { Button } from '../../Features/Button/Button'
+import { MainForm, PageStyle } from "../Login/LoginStyled";
 
 interface SignupProps {
   checked?: boolean | undefined;
@@ -21,11 +21,11 @@ interface OtherProps {
 
 export const Signup: React.FC<SignupProps> = ({}) => {
   return (
-    <SignUpStyle
+    <PageStyle
     className="d-lg-flex half"
     >
       <div className="bg order-1 order-md-2 ImgFrame"></div>
-      <SignupForm className="contents order-2 order-md-1">
+      <MainForm className="contents order-2 order-md-1">
 
       <div className="container">
 
@@ -35,8 +35,7 @@ export const Signup: React.FC<SignupProps> = ({}) => {
               Sign up <strong>Hicker</strong>
             </h3>
             <p className="mb-4">
-              Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur
-              adipisicing.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum gravida scelerisque nunc senectus ac. Aliquam auctor lacinia pellentesque purus viverra dignissim. Vel quam varius.
             </p>
 
           <MyForm message="Sign up" />
@@ -44,16 +43,16 @@ export const Signup: React.FC<SignupProps> = ({}) => {
 
         </div>
         </div>
-      </SignupForm>
-    </SignUpStyle>
+      </MainForm>
+    </PageStyle>
   );
 };
 
 
 ////////////////////////////////////
- // Aside: You may see InjectedFormikProps<OtherProps, FormValues> instead of what comes below in older code.. InjectedFormikProps was artifact of when Formik only exported a HoC. It is also less flexible as it MUST wrap all props (it passes them through).
  const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
   const { touched, errors, isSubmitting, message } = props;
+  let navigate = useNavigate();
   return (
     <Form>
 
@@ -102,8 +101,10 @@ export const Signup: React.FC<SignupProps> = ({}) => {
         </button>
       {/* </Button> */}
     <br></br>
-      <label>I already have an account <strong>Login</strong></label>
-    </Form>
+    <label>I already have an account <label onClick={(event: React.MouseEvent<HTMLElement>) => {
+navigate(`/login`)
+}}><strong>Login</strong></label></label>
+   </Form>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from 'react'
-import{Button } from './Button/Button'
+import{Button } from '../Button/Button'
 import {IntroDiv} from './IntoStyle'
-import { IntroPhoto } from './IntroPhoto/IntroPhoto'
+import { Photo } from '../Photo/Photo'
 import HeadingD from './HeadingD/HeadingD'
 
 
@@ -18,7 +18,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
                 <Button text='Get Started'></Button>
                 </div>
               
-              <IntroPhoto></IntroPhoto>
+              <Photo></Photo>
            
 
             </IntroDiv>

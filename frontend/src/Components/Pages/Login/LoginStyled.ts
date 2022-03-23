@@ -43,21 +43,25 @@ import photo from "../../Features/images/h4.jpg";
 // `;
 
 
-export const LoginForm = styled.div`
+export const MainForm = styled.div`
   /* background-color: skyblue; */
 
   margin-top: 40px;
   align-items: center;
   justify-content: center;
   margin-bottom: 40px;
+  background: #FFFFFF;
+  border-radius: 8px 8px 0px 0px;
+left: calc(50% - 375px/2);
+top: calc(50% - 631px/2 + 133px);
   @media (min-width: 1024px) {
     flex: 1;
-    height: 700px;
+    min-height: 700px;
   }
 `;
 ////////////////////////////////////////////////////////////
 
-export const LoginStyle = styled.div`
+export const PageStyle = styled.div`
 
   .ImgFrame {
     /* background-image: url(${photo}); */
@@ -65,25 +69,15 @@ export const LoginStyle = styled.div`
     height: 292px;
   }
   //////////////////////////////////////////
-  body {
-  font-family: "Roboto", sans-serif;
-  background-color: #fff; }
-
 p {
   color: #b3b3b3;
   font-weight: 300; }
 
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Roboto", sans-serif; }
-
 a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
-  transition: .3s all ease; }
-  a:hover {
-    text-decoration: none !important; }
-
+  transition: .3s all ease; 
+  text-decoration: none !important; }
 .content {
   padding: 7rem 0; }
 
@@ -209,35 +203,5 @@ a {
   background-color: #7e0cf5;
   opacity: .2; }
 
-  .btn{
-
-align-items: center;
-padding: 10px;
-/* Dark gray */
-
-background: #5A5A5A;
-width: 145px;
-height: 49px;
-left: 24px;
-top: 368px;
-
-box-shadow: 0px 11.6402px 46.5608px rgba(0, 0, 0, 0.06);
-border-radius: 6px;
-
-/// text
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 23px;
-
-color: #FFFFFF;
-
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 10px;
-  }
 
 `;
