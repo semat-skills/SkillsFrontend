@@ -12,10 +12,6 @@ const HeadingD: React.FC<HeadingProps> = ({}) => {
 
                     <BigTitle text='Headline'/>
                     <BigTitle text='Headline 222'/>
-
-                    {/* <BigTitle></BigTitle>
-                    <BigTitle></BigTitle> */}
-
                 </IntroHead>
 
 

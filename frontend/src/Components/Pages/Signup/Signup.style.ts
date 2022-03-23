@@ -1,75 +1,24 @@
 import styled from "styled-components";
-import photo from "./h4.jpg";
+import photo from "./h3.jpeg";
 
-// export const LoginStyle = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  @media (min-width: 1024px) {
-    flex-direction: row-reverse; */
- // }
-  // .ImgFrame {
-    /* background-image: url(${photo}); */
-    // background-color: blue;
-    /* overflow: hidden;
-    background-size: cover;
-    background-position: center;
+export const SignupForm = styled.div`
+  /* background-color: skyblue;
 
-
-
-       background-color: blue;
-       min-height: 700px; */
-
-       ////////////////////// this one
-       /* background-repeat: no-repeat;
-  background-size: cover; */
-  /////////////////////////
-
-    /* display: block;
-    margin: auto;
-
-    height: auto;
-    max-height: 100%;
-
-    width: auto;
-    max-width: 100%; */
-
-    /* @media (min-width: 1024px) {
-      flex: 1;
-    
-    } */
-//   }
-// `;
-
-
-export const LoginForm = styled.div`
-  /* background-color: skyblue; */
-
-  margin-top: 40px;
   align-items: center;
   justify-content: center;
   
   @media (min-width: 1024px) {
     flex: 1;
     height: 700px;
-  }
+  } */
 `;
 ////////////////////////////////////////////////////////////
 
-export const LoginStyle = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  @media (min-width: 1024px) {
-    flex-direction: row-reverse; */
-
+export const SignUpStyle = styled.div`
 
   .ImgFrame {
     /* background-image: url(${photo}); */
-    background-color: skyblue;
-    height: 292px;
+    background-color: blue;
   }
   //////////////////////////////////////////
   body {
@@ -215,36 +164,5 @@ a {
 .control--checkbox input:disabled:checked ~ .control__indicator {
   background-color: #7e0cf5;
   opacity: .2; }
-
-  .btn{
-
-align-items: center;
-padding: 10px;
-/* Dark gray */
-
-background: #5A5A5A;
-width: 145px;
-height: 49px;
-left: 24px;
-top: 368px;
-
-box-shadow: 0px 11.6402px 46.5608px rgba(0, 0, 0, 0.06);
-border-radius: 6px;
-
-/// text
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 23px;
-
-color: #FFFFFF;
-
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 10px;
-  }
 
 `;

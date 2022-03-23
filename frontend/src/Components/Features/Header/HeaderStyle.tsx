@@ -25,9 +25,3 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 `;
-
-// position: absolute;
-// width: 375px;
-// height: 88px;
-// left: 0px;
-// top: -16px;

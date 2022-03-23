@@ -12,7 +12,7 @@ interface MainPageStyleProps {
 // }
 export const MainPageStyle = styled.div`
 /* position: absolute; */
-/* background-color: ${webColors.color1}; */
+
 width: 100vw;
 /* top: 0px; */
 

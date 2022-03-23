@@ -7,23 +7,6 @@ left: 0px;
 top: 0px;
 
 margin: 0px 14.2411px;
-/* height: 120px;
-left: 6.4%;
-right: 10.4%;
-top: 1370px;
-
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 24px; */
-/* or 150% */
-
-
-/* Grayscale/Primery text */
-/* 
-color: #3A3A3A; */
-
 `;
 
 export const CardImg = styled.div`
@@ -33,9 +16,6 @@ border-radius: 10.4762px 10.4762px 0px 0px;
 width: 197.34px;
 height: 128.17px;
 
-/* height: 228px;
-width: 339px;
-left: 0px; */
 top: 2.328125px;
 border-radius: 0px;
 background-color: gray;
@@ -49,9 +29,6 @@ font-size: 13px;
 line-height: 28px;
 /* or 150% */
 
-
-/* Grayscale/Primery text */
-
 color: #3A3A3A;
 `;
 
@@ -62,8 +39,6 @@ font-weight: 700;
 font-size: 27.9365px;
 line-height: 33px;
 /* identical to box height */
-
-
 color: #000000;
 `;
 

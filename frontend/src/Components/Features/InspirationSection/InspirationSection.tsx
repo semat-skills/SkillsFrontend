@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Card } from './Card/Card';
 import { InsptDiv, TitleDiv } from './InspirationSectionStyle';
-import Carousel from "react-simply-carousel";
+// import Carousel from "react-simply-carousel";
 
 
 interface InspirationSectionProps {
@@ -19,9 +19,10 @@ export const Inspiration
               
                <Card></Card>
                {/* <Card></Card> */}
+               
+{/* 
 
-
-               {/* </Carousel> */}
+               </Carousel> */}
            </InsptDiv>
         );
 }

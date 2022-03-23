@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 
 export const ButtonS = styled.button`
-font-family: 'Courier New', Courier, monospace;
 
 /* position: absolute; */
 

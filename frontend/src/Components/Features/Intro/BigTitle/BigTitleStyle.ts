@@ -1,5 +1,4 @@
 import styled ,{css}from 'styled-components';
-// import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 export const BTitleDiv = styled.div`
 width: 321px;

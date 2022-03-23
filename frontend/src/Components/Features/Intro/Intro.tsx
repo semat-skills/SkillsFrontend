@@ -15,7 +15,7 @@ const Intro: React.FC<IntroProps> = ({}) => {
                 <div>
                 <HeadingD></HeadingD>
             
-                <Button></Button>
+                <Button text='Get Started'></Button>
                 </div>
               
               <IntroPhoto></IntroPhoto>

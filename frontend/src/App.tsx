@@ -1,8 +1,7 @@
 import React from "react";
 import { Footer } from "./Components/Features/Footer/Footer";
 import MainContainer from "./Components/Pages/HomePage/HomePage";
-import { AppTail } from "./AppTail";
-import Navbar from "./Components/Features/Header/IndexNavbar";
+import { Login } from "./Components/Pages/Login/Login";
 
 
 // import { render } from "react-dom";
@@ -17,7 +16,8 @@ const App: React.FC = () => {
  
   return (
     <>
-    <MainContainer/>
+    {/* <MainContainer/> */}
+    <Login></Login>
     </>
   );
 };

@@ -1,38 +1,41 @@
 import React from 'react'
-import * as FStyle from './Footer.style';
+import { FirstRow, FooterStyle ,Input,Page,Pages,SecondRow,Subscribe, SubscribeButton} from './Footer.style';
 
 interface FooterProps {
 
 }
 
 export const Footer: React.FC<FooterProps> = () => {
-        return (
-            <div>
-                <FStyle.FooterStyle>
-                    <FStyle.FirstRow>
-                        <FStyle.Subscribe>
+        return(
+<>
+                <FooterStyle>
+                    <FirstRow>
+                        <Subscribe>
                         Subscribe to our newsletter
                         <br />
-                        <FStyle.Input placeholder="Email Address"></FStyle.Input>
-                        <FStyle.SubscribeButton>&gt;</FStyle.SubscribeButton>
-                        </FStyle.Subscribe>
-                      <FStyle.Pages>
+                        <Input placeholder="Email Address"></Input>
+                        <SubscribeButton>&gt;</SubscribeButton>
+                        </Subscribe>
+                      <Pages>
                         <li>
-                            <FStyle.Page href="">Page 1</FStyle.Page>
+                            <Page href="">Page 1</Page>
                         </li>
                         <li>
-                            <FStyle.Page href="">Page 2</FStyle.Page>
+                            <Page href="">Page 2</Page>
                         </li>
                         <li>
-                            <FStyle.Page href="">Page 3</FStyle.Page>
+                            <Page href="">Page 3</Page>
                         </li>
                         <li>
-                            <FStyle.Page href="">Page 4</FStyle.Page>
+                            <Page href="">Page 4</Page>
                         </li>
-                      </FStyle.Pages>
-                    </FStyle.FirstRow>
-                </FStyle.FooterStyle>
-            </div>
-        );
-}
+                      </Pages>
+                    </FirstRow>
 
+                    <SecondRow>
+                        
+                    </SecondRow>
+                    </FooterStyle>
+                    </>
+        );
+        }
