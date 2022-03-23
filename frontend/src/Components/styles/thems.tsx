@@ -1,13 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-// interface themsProps {
-
-// }
-
-
-// export const webColors = styled.div`
-// background-color: green;
-// `;
 
 export const webColors = {
     color1: '#56b2c3' ,
@@ -17,3 +9,4 @@ export const webColors = {
     color5: '#ecf9fc',
     color6: 'white',
 };
+
