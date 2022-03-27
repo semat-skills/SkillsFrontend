@@ -9,8 +9,7 @@ background-repeat: no-repeat;
 background-size: cover;
 width: 181.62px;
 height: 181.62px;
-/* left: 78px;
-top: 517px; */
+
 border-radius:50%;
 margin: 16px;
 margin-left: auto;

@@ -16,6 +16,7 @@ export const Footer: React.FC<FooterProps> = () => {
   return (
     <>
       <FooterStyle>
+        <div className="f-container">
         <FirstRow>
           <Subscribe>
             Subscribe to our Newsletter
@@ -41,19 +42,33 @@ export const Footer: React.FC<FooterProps> = () => {
 
         <SecondRow>
           <div className="law">
-            </div>
-            <div className="social">
-               <button className="soc"></button>
-   
-  <a href="#"><i className="fa fa-facebook soc"></i></a>
-    <a href="#"><i className="fa fa-twitter soc"></i></a>
-    <a href="#"><i className="fa fa-instagram soc"></i></a>
-
-
-        
-
+            <div className="terms">
+              <div>
+                <a className="term" href="#">
+                  Terms &#38; Conditions
+                </a>
               </div>
+              <div>
+                <a className="privacy" href="#">
+                  Privacy Policy
+                </a>
+              </div>
+            </div>
+            <div className="copy">Copyright © 2022 to Hicker</div>
+          </div>
+          <div className="social">
+            <a href="#">
+              <i className="fa fa-facebook soc"></i>
+            </a>
+            <a href="#">
+              <i className="fa fa-twitter soc"></i>
+            </a>
+            <a href="#">
+              <i className="fa fa-instagram soc"></i>
+            </a>
+          </div>
         </SecondRow>
+        </div>
       </FooterStyle>
     </>
   );

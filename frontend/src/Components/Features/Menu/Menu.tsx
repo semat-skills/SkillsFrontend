@@ -9,7 +9,7 @@ interface MenuProps {
 export const Menu: React.FC<MenuProps> = ({}) => {
         return (
             <MenuDiv>
-                 Menu
+                 <i className="gg-menu"></i>
             </MenuDiv>
         );
 }

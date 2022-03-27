@@ -293,7 +293,6 @@ export const SignupForm = () => {
                 id="confirmPassword"
                 type="checkbox"
                 {...register("acceptTerms")}
-                // onChange={handleAcceptTermsChange}
                 onKeyPress={handleKeyPress}
                 className={`form-check-input ${
                   errors.acceptTerms ? "is-invalid" : ""

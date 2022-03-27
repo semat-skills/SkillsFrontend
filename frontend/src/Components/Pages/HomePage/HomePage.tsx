@@ -8,10 +8,9 @@ interface MainContainerProps {}
 
 const MainContainer: React.FC<MainContainerProps> = ({}) => {
   return (
-    // <Navbar fixed></Navbar>
 
     <HomeContainer>
-      {/* <Navbar></Navbar> */}
+
       <Header />
       <MainPage />
       <Footer />
@@ -21,9 +20,3 @@ const MainContainer: React.FC<MainContainerProps> = ({}) => {
 
 
 export default MainContainer;
-// <FlexBox>
-// <Navbar></Navbar>
-// <Header/>
-// <MainPage/>
-// <Footer/>
-// </FlexBox>

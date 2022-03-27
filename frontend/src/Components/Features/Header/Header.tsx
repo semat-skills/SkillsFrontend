@@ -10,7 +10,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({}) => {
         return (
-         //   <div className='nav'> 
+        
             <S.HeaderStyle>
                 <Logo>
                 header
@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
                 <Menu>
                 </Menu>
             </S.HeaderStyle>
-           // </div>
+   
         );
 }
 

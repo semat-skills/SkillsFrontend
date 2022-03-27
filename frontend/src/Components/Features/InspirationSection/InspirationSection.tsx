@@ -16,8 +16,11 @@ export const Inspiration
            <InsptDiv>
                <TitleDiv>Hicking of The Week</TitleDiv>
               {/* <Carousel> */}
-              
+              <div className='cards'>
                <Card></Card>
+               <Card></Card>
+               <Card></Card>
+               </div>
                {/* <Card></Card> */}
                
 {/* 
