@@ -1,4 +1,5 @@
 import React from 'react'
+import { ButtonD } from './Button.style';
 
 
 interface ButtonProps {
@@ -6,15 +7,14 @@ interface ButtonProps {
     text?: string;
     disabled?:  (boolean & (boolean | (() => void))) | undefined;
     className?: string;
+    onClick?:( ()=> void ) | ((e:React.MouseEvent<HTMLButtonElement>) => void);
     
 }
 
-export const Button: React.FC<ButtonProps> = ({text,type,disabled}) => {
+export const Button: React.FC<ButtonProps> = ({className,text,type,disabled,onClick}) => {
         return (
-            <Button type={type} disabled={disabled}>
+            <ButtonD className={className} type={type} disabled={disabled} onClick={onClick}>
                {text}
-           </Button>
+           </ButtonD>
         );
 }
-
-//edit - general : Done!

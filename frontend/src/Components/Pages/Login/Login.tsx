@@ -25,7 +25,7 @@ interface MyFormProps {
   initialPassword?: string;
   message: string; 
 }
-export const Login: React.FC<LoginProps> = ({}) => {
+export const Login1: React.FC<LoginProps> = ({}) => {
   return (
     <PageStyle className="d-lg-flex half">
       <div className="bg order-1 order-md-2 ImgFrame"></div>
@@ -137,9 +137,9 @@ const MyForm = withFormik<MyFormProps, FormValues>({
     // } else if (!isValidEmail(values.email)) {
     //   errors.email = 'Invalid email address';
     // }
-    if (!values.password) {
-      errors.password = "Required";
-    }
+    // if (!values.password) {
+    //   errors.password = "Required";
+    // }
     return errors;
   },
 
@@ -149,3 +149,5 @@ const MyForm = withFormik<MyFormProps, FormValues>({
     // do submitting things
   },
 })(InnerForm);
+
+
