@@ -7,23 +7,44 @@ import { webColors } from "../../styles/thems";
 // }
 
 export const FooterStyle = styled.footer`
+    
+  /* padding-top: 25px;
+  padding-bottom: 25px; */
+
   position: relative;
-  background: rgb(29 78 216);
+  /* background: rgb(29 78 216); */
+  background-color: ${webColors.color1};
+  
+
+ 
+
+
+  .f-container{
+    display: flex;
+     flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
   padding-top: 8px;
   padding-bottom: 6px;
 
   /* width: 100%; */ //to check
-  max-width: auto;
+  /* max-width: auto; */
   padding-left: 4px;
   padding-right: 4px;
 
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  align-items: center;
   @media (min-width: 1024px) {
-    text-align: left;
+    width: 100vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    margin-left: 30px;
+    margin-right: 30px;
+    
   }
+  }
+
 `;
 
 export const FirstRow = styled.div`
@@ -33,13 +54,15 @@ export const FirstRow = styled.div`
   @media (min-width: 1024px) {
     flex-direction: row;
     justify-content: space-between;
+   
   }
 `;
 export const Pages = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
-
+  font-weight: 400;
+font-size: 16px;
   @media (min-width: 1024px) {
     flex-direction: row;
   }
@@ -68,27 +91,92 @@ export const Subscribe = styled.div`
   color: #ffffff;
 `;
 
-export const SecondRow = styled.footer``;
+export const SecondRow = styled.div`
+   display: flex;
+  flex-direction: column-reverse;
 
-export const SocialMedia = styled.footer``;
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-between;
+    /* width: 100vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    margin-left: 112px;
+    margin-right: 112px; */
+  }
+  a{
+  text-decoration: none !important; 
+  color: white;
+}
+  .soc{
+    height: 30px;
+    width: 60px;
+    color: white;
+  font-size: 20px;
+  padding: 10px;
+  }
+
+  .law{
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+font-size: 15px;
+    @media (min-width: 1024px) {
+    flex-direction: row;
+    align-items: left;
+  }
+
+
+  }
+
+  .social{
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    @media (min-width: 1024px) {
+      margin-top: 0px;
+    margin-bottom: 0px;
+    /* margin-left: 20px; */
+   
+  }
+  }
+  .terms{
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    /* justify-content: space-between; */
+
+  }
+  .term{
+    margin-right: 20px;
+  }
+  .privacy{
+    margin-left: 20px;
+  }
+  .copy{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    @media (min-width: 1024px) {
+      margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+  }
+
+  }
+`;
+
 
 export const Input = styled.input`
   width: 278px;
   height: 45px;
-  left: 0px;
-  top: 50px;
-
-  /* White */
 
   background: #ffffff;
-  /* Grayscale/Dividers + Borders */
-
   border: 1px solid #d6d6d6;
   box-sizing: border-box;
   border-radius: 4px;
 `;
 
-export const SecondRow1 = styled.footer``;
 
 export const SubscribeButton = styled.button`
   width: 46.5px;
@@ -101,8 +189,3 @@ export const SubscribeButton = styled.button`
   border-radius: 8px 8px 0px 0px;
 `;
 
-export const SocialMedia1 = styled.footer``;
-
-export const Subscribe12 = styled.div``;
-
-export const SecondRow12 = styled.footer``;

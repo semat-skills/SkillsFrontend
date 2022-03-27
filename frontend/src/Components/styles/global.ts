@@ -1,11 +1,12 @@
 import { createGlobalStyle } from "styled-components";
-import px2vw from "./px2vw";
+import px2vw from "../draft/px2vw";
 
 export const Global = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto"
   }
   :root {
       font-size: ${px2vw(24)};

@@ -10,14 +10,14 @@ interface MainPageProps {
 
 export const MainPage: React.FC<MainPageProps> = ({}) => {
         return (
-          //  <div>
+
                  <S.MainPageStyle> 
                     
                 <Intro></Intro>
                 <Inspiration></Inspiration>
                 <OurFeatures></OurFeatures>
                     </S.MainPageStyle> 
-            //</div>
+
         );
 }
 

@@ -1,24 +1,27 @@
 import React from 'react'
-import{Button } from './Button/Button'
+import{Button } from '../Button/Button'
 import {IntroDiv} from './IntoStyle'
-import { IntroPhoto } from './IntroPhoto/IntroPhoto'
+import { PhotoD } from '../PhotoD/PhotoD'
 import HeadingD from './HeadingD/HeadingD'
-
+import { useNavigate } from "react-router-dom";
 
 interface IntroProps {
 
 }
 
 const Intro: React.FC<IntroProps> = ({}) => {
+  let navigate = useNavigate();
         return (
             <IntroDiv>
                 <div>
                 <HeadingD></HeadingD>
             
-                <Button text='Get Started'></Button>
+                <Button text='Get Started' onClick={() => {
+                  navigate('/login');
+                }}></Button>
                 </div>
               
-              <IntroPhoto></IntroPhoto>
+              <PhotoD></PhotoD>
            
 
             </IntroDiv>

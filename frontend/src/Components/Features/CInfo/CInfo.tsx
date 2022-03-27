@@ -1,6 +1,4 @@
 import React from 'react'
-// import { CText } from '../CText/CText';
-// import { CTitle } from '../CTitle/CTitle';
 import {InfoDiv,TitleDiv,TextDiv} from './CInfoStyle'
 interface CInfoProps {
     title: string | null ;
@@ -8,19 +6,10 @@ interface CInfoProps {
 }
 
 interface CInfoProps {
-    // title: string ;
-    // text:string ;
+
 }
 
-// export const CInfo: React.FC<CInfoProps> = ({title, text}) => {
-//         return (
-//            <InfoDiv>
-//                <CTitle title=`${title}` />
-//                <CText text={text} />
 
-//            </InfoDiv>
-//         );
-// }
 
 export const CInfo: React.FC<CInfoProps> = ({title,text}) => {
     return (
