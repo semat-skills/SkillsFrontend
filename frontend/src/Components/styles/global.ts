@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import px2vw from "./px2vw";
+import px2vw from "../draft/px2vw";
 
 export const Global = createGlobalStyle`
   * {

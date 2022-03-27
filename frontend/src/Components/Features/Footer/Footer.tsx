@@ -25,21 +25,35 @@ export const Footer: React.FC<FooterProps> = () => {
           </Subscribe>
           <Pages>
             <li>
-              <Page href="">Page 1</Page>
+              <Page href="">About</Page>
             </li>
             <li>
-              <Page href="">Page 2</Page>
+              <Page href="">Trips</Page>
             </li>
             <li>
-              <Page href="">Page 3</Page>
+              <Page href="">Trails</Page>
             </li>
             <li>
-              <Page href="">Page 4</Page>
+              <Page href="">Hickers</Page>
             </li>
           </Pages>
         </FirstRow>
 
-        <SecondRow></SecondRow>
+        <SecondRow>
+          <div className="law">
+            </div>
+            <div className="social">
+               <button className="soc"></button>
+   
+  <a href="#"><i className="fa fa-facebook soc"></i></a>
+    <a href="#"><i className="fa fa-twitter soc"></i></a>
+    <a href="#"><i className="fa fa-instagram soc"></i></a>
+
+
+        
+
+              </div>
+        </SecondRow>
       </FooterStyle>
     </>
   );

@@ -7,20 +7,23 @@ import { webColors } from "../../styles/thems";
 // }
 
 export const FooterStyle = styled.footer`
+     display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* padding-top: 25px;
+  padding-bottom: 25px; */
+
   position: relative;
   background: rgb(29 78 216);
   padding-top: 8px;
   padding-bottom: 6px;
 
   /* width: 100%; */ //to check
-  max-width: auto;
+  /* max-width: auto; */
   padding-left: 4px;
   padding-right: 4px;
 
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  align-items: center;
   @media (min-width: 1024px) {
     text-align: left;
   }
@@ -68,27 +71,48 @@ export const Subscribe = styled.div`
   color: #ffffff;
 `;
 
-export const SecondRow = styled.footer``;
+export const SecondRow = styled.div`
+   display: flex;
+  flex-direction: column-reverse;
 
-export const SocialMedia = styled.footer``;
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .soc{
+    height: 20px;
+    width: 50px;
+
+    color: #70726F;
+    background-color: white;
+  font-size: 20px;
+  padding: 10px;
+  /* border-right: 1px solid #70726F; */
+  transition: all .5s ease;
+  }
+
+  .law{
+
+
+  }
+
+  .social{
+
+  }
+`;
+
 
 export const Input = styled.input`
   width: 278px;
   height: 45px;
-  left: 0px;
-  top: 50px;
-
-  /* White */
 
   background: #ffffff;
-  /* Grayscale/Dividers + Borders */
-
   border: 1px solid #d6d6d6;
   box-sizing: border-box;
   border-radius: 4px;
 `;
 
-export const SecondRow1 = styled.footer``;
 
 export const SubscribeButton = styled.button`
   width: 46.5px;
@@ -101,8 +125,3 @@ export const SubscribeButton = styled.button`
   border-radius: 8px 8px 0px 0px;
 `;
 
-export const SocialMedia1 = styled.footer``;
-
-export const Subscribe12 = styled.div``;
-
-export const SecondRow12 = styled.footer``;

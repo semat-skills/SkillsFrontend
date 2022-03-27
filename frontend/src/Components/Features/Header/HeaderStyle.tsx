@@ -1,7 +1,7 @@
 import React from 'react'
 import styled ,{css}from 'styled-components';
 import { webColors } from '../../styles/thems';
-import px2vw from "../../styles/px2vw";
+import px2vw from "../../draft/px2vw";
 
 
 interface HeaderStyleProps {

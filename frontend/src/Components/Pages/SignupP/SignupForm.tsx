@@ -132,7 +132,7 @@ export const SignupForm = () => {
         type: "loginSuccess",
         payload: "Login Successfully",
       });
-      navigate("/");
+      navigate("/login");
     } else {
       dispatch({
         type: "loginFailed",
@@ -182,15 +182,6 @@ export const SignupForm = () => {
       payload: event.target.value,
     });
   };
-
-  // const handleAcceptTermsChange: React.ChangeEventHandler<HTMLInputElement> = (
-  //   event
-  // ) => {
-  //   dispatch({
-  //     type: "setAcceptTerms",
-  //     payload: event.target.value,
-  //   });
-  // };
 
   const validationSchema = Yup.object().shape({
     fullname: Yup.string().required('Fullname is required'),

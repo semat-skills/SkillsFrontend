@@ -2,7 +2,13 @@ import styled from 'styled-components';
 
 export const MyForm = styled.div`
 max-width: 511px;;
+min-width: 370px;
+background: #FFFFFF;
+border-radius: 8px 8px 0px 0px;
 
+@media (min-width: 1024px) {
+  border-radius: 0px;
+  }
 .center {
     display: flex;
   justify-content: center;
