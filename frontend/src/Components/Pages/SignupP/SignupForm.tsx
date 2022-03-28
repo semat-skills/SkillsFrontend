@@ -12,11 +12,11 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     card: {
       marginTop: theme.spacing(10),
-      borderColor: 'while'
+      borderColor: "while",
+      padding: "20px",
     },
   })
 );
-
 
 type State = {
   fullname: string;
@@ -65,12 +65,12 @@ const reducer = (state: State, action: Action): State => {
         ...state,
         password: action.payload,
       };
-      case "setConfirmPassword":
+    case "setConfirmPassword":
       return {
         ...state,
         confirmPassword: action.payload,
       };
-      case "setAcceptTerms":
+    case "setAcceptTerms":
       return {
         ...state,
         acceptTerms: action.payload,
@@ -98,11 +98,13 @@ export const SignupForm = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   let navigate = useNavigate();
 
-
   //todo
   useEffect(() => {
-    if (state.email.trim() && state.password.trim()
-    && state.fullname.trim() && state.confirmPassword.trim()
+    if (
+      state.email.trim() &&
+      state.password.trim() &&
+      state.fullname.trim() &&
+      state.confirmPassword.trim()
     ) {
       dispatch({
         type: "setIsButtonDisabled",
@@ -114,7 +116,7 @@ export const SignupForm = () => {
         payload: true,
       });
     }
-  }, [state.fullname,state.email, state.password,state.confirmPassword]);
+  }, [state.fullname, state.email, state.password, state.confirmPassword]);
 
   //todo
   const handleSignup = () => {
@@ -122,12 +124,12 @@ export const SignupForm = () => {
     console.log(state.password);
 
     const newUser = {
-      fullname:state.fullname,
-      email:state.email,
-      password: state.password
-    }
+      fullname: state.fullname,
+      email: state.email,
+      password: state.password,
+    };
     // if (state.email === "admin@email.com" && state.password === "password") {
-      if (newUser) {
+    if (newUser) {
       dispatch({
         type: "loginSuccess",
         payload: "Login Successfully",
@@ -174,9 +176,9 @@ export const SignupForm = () => {
       payload: event.target.value,
     });
   };
-  const handleConfirmPasswordChange: React.ChangeEventHandler<HTMLInputElement> = (
-    event
-  ) => {
+  const handleConfirmPasswordChange: React.ChangeEventHandler<
+    HTMLInputElement
+  > = (event) => {
     dispatch({
       type: "setConfirmPassword",
       payload: event.target.value,
@@ -184,18 +186,16 @@ export const SignupForm = () => {
   };
 
   const validationSchema = Yup.object().shape({
-    fullname: Yup.string().required('Fullname is required'),
-    email: Yup.string()
-      .required('Email is required')
-      .email('Email is invalid'),
+    fullname: Yup.string().required("Fullname is required"),
+    email: Yup.string().required("Email is required").email("Email is invalid"),
     password: Yup.string()
-      .required('Password is required')
-      .min(6, 'Password must be at least 6 characters')
-      .max(40, 'Password must not exceed 40 characters'),
+      .required("Password is required")
+      .min(6, "Password must be at least 6 characters")
+      .max(40, "Password must not exceed 40 characters"),
     confirmPassword: Yup.string()
-      .required('Confirm Password is required')
-      .oneOf([Yup.ref('password'), null], 'Confirm Password does not match'),
-    acceptTerms: Yup.bool().oneOf([true], 'Accept Terms is required')
+      .required("Confirm Password is required")
+      .oneOf([Yup.ref("password"), null], "Confirm Password does not match"),
+    acceptTerms: Yup.bool().oneOf([true], "Accept Terms is required"),
   });
 
   const {
@@ -212,19 +212,18 @@ export const SignupForm = () => {
   };
   return (
     <MyForm className="container">
-      <form
-        onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Card className={classes.card}>
-          <h3>
+          <h2>
             Signup to <strong>Hicker</strong>
-          </h3>
+          </h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum
             gravida scelerisque nunc senectus ac. Aliquam auctor lacinia
             pellentesque purus viverra dignissim. Vel quam varius.
           </p>
           <div>
-          <div className="inputDiv">
+            <div className="inputDiv">
               <label>Full Name</label>
               <input
                 id="fullname"
@@ -255,52 +254,65 @@ export const SignupForm = () => {
               <div className="invalid-feedback">{errors.email?.message}</div>
             </div>
             <div className="password">
-            <div className="inputDiv">
-              <label>Password</label>
-              <input
-                id="password"
-                type="password"
-                placeholder="Password"
-                {...register("password")}
-                onChange={handlePasswordChange}
-                onKeyPress={handleKeyPress}
-                className={`input-text form-control ${
-                  errors.password ? "is-invalid" : ""
-                }`}
-              />
-              <div className="invalid-feedback">{errors.password?.message}</div>
-            </div>
-            <div className="inputDiv">
-              <label>Confirm Password</label>
-              <input
-                id="confirmPassword"
-                type="password"
-                placeholder="Confirm Password"
-                {...register("confirmPassword")}
-                onChange={handleConfirmPasswordChange}
-                onKeyPress={handleKeyPress}
-                className={`input-text form-control ${
-                  errors.confirmPassword ? "is-invalid" : ""
-                }`}
-              />
-              <div className="invalid-feedback">{errors.confirmPassword?.message}</div>
-            </div>
+              <div className="inputDiv">
+                <label>Password</label>
+                <input
+                  id="password"
+                  type="password"
+                  placeholder="Password"
+                  {...register("password")}
+                  onChange={handlePasswordChange}
+                  onKeyPress={handleKeyPress}
+                  className={`input-text form-control ${
+                    errors.password ? "is-invalid" : ""
+                  }`}
+                />
+                <div className="invalid-feedback">
+                  {errors.password?.message}
+                </div>
+              </div>
+              <div className="inputDiv">
+                <label>Confirm Password</label>
+                <input
+                  id="confirmPassword"
+                  type="password"
+                  placeholder="Confirm Password"
+                  {...register("confirmPassword")}
+                  onChange={handleConfirmPasswordChange}
+                  onKeyPress={handleKeyPress}
+                  className={`input-text form-control ${
+                    errors.confirmPassword ? "is-invalid" : ""
+                  }`}
+                />
+                <div className="invalid-feedback">
+                  {errors.confirmPassword?.message}
+                </div>
+              </div>
             </div>
 
             <div className="inputDiv form-check">
               <div className="check-text">
-              <input
-                id="confirmPassword"
-                type="checkbox"
-                {...register("acceptTerms")}
-                onKeyPress={handleKeyPress}
-                className={`form-check-input ${
-                  errors.acceptTerms ? "is-invalid" : ""
-                }`}
-              />
-              <label className="terms ml-auto">I confirm that I have read the <strong><a href="#" className="">Terms and Conditions</a></strong></label> 
+                <input
+                  id="confirmPassword"
+                  type="checkbox"
+                  {...register("acceptTerms")}
+                  onKeyPress={handleKeyPress}
+                  className={`form-check-input ${
+                    errors.acceptTerms ? "is-invalid" : ""
+                  }`}
+                />
+                <label className="terms ml-auto">
+                  I confirm that I have read the{" "}
+                  <strong>
+                    <a href="#" className="">
+                      Terms and Conditions
+                    </a>
+                  </strong>
+                </label>
               </div>
-              <div className="invalid-feedback">{errors.acceptTerms?.message}</div>        
+              <div className="invalid-feedback">
+                {errors.acceptTerms?.message}
+              </div>
             </div>
             {/* <div className="invalid-feedback">{state.helperText}</div> */}
           </div>
@@ -312,9 +324,16 @@ export const SignupForm = () => {
             ></Button>
           </div>
           <div className="center">
-          <label>I already have an account <label onClick={(event: React.MouseEvent<HTMLElement>) => {
-navigate(`/login`)
-}}><strong>Login</strong></label></label>
+            <label>
+              I already have an account{" "}
+              <label
+                onClick={(event: React.MouseEvent<HTMLElement>) => {
+                  navigate(`/login`);
+                }}
+              >
+                <strong>Login</strong>
+              </label>
+            </label>
           </div>
         </Card>
       </form>

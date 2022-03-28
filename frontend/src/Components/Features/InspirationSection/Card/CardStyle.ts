@@ -5,7 +5,8 @@ width: 338.73px;
 height: 440px;
 left: 0px;
 top: 0px;
-
+font-style: normal;
+font-weight: 400;
 margin: 0px 14.2411px;
 `;
 

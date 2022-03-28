@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Page = styled.div`
- font-family: "Roboto";
+  font-family: "Roboto";
   display: flex;
   flex-direction: column;
 

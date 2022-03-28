@@ -12,11 +12,11 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     card: {
       marginTop: theme.spacing(10),
-      borderColor: 'while'
+      borderColor: "while",
+      padding: "20px",
     },
   })
 );
-
 
 type State = {
   email: string;
@@ -153,12 +153,11 @@ export const LoginForm = () => {
   };
   return (
     <MyForm className="container">
-      <form
-        onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Card className={classes.card}>
-          <h3>
+          <h2>
             Login to <strong>Hicker</strong>
-          </h3>
+          </h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum
             gravida scelerisque nunc senectus ac. Aliquam auctor lacinia
@@ -214,7 +213,7 @@ export const LoginForm = () => {
             ></Button>
           </div>
           <div className="center">
-            I don't have an account yet!
+            <label>I don't have an account yet! &nbsp;</label>
             <label
               onClick={(event: React.MouseEvent<HTMLElement>) => {
                 navigate(`/signup`);

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { webColors } from "../../../styles/thems";
 
 export const StoryBoxDiv = styled.div`
   font-family: "Roboto";
@@ -8,7 +9,8 @@ export const StoryBoxDiv = styled.div`
   left: 24px;
   top: 1522px;
 
-  background: #c4c4c4;
+  /* background: #c4c4c4; */
+  background-color: ${webColors.color4};
 
   font-family: "Roboto";
   font-style: normal;

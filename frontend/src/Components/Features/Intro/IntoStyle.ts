@@ -7,9 +7,21 @@ export const IntroDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding:20px;
 
   @media (min-width: 1024px) {
     flex-direction: row;
-    padding: 50px;
+    padding: 120px;
+    
+  }
+
+  .photoDiv{
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    @media (min-width: 1024px) {
+    
+    padding-right: 40px;
+  }
   }
 `;

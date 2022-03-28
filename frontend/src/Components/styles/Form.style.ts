@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
 export const MyForm = styled.div`
- font-family: "Roboto";
   max-width: 511px;
   min-width: 370px;
   background: #ffffff;
   border-radius: 8px 8px 0px 0px;
-  font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  /* font-weight: 400; */
+  font-size: 16px;
+  margin-bottom: 70px;
 
   @media (min-width: 1024px) {
     border-radius: 0px;
@@ -20,25 +21,23 @@ font-size: 16px;
     align-items: center;
     padding-top: 25px;
     padding-bottom: 25px;
-
-    @media (min-width: 1024px) {
-      justify-content: left;
-      align-items: flex-start;
-    }
+    height: 72px;
   }
 
   p {
     color: #b3b3b3;
     font-weight: 300;
+    padding-top: 10px;
   }
 
   .input-text {
     background: #ffffff;
-
+    font-size: medium;
     padding: 12px 16px;
     border: 1px solid #d6d6d6;
     box-sizing: border-box;
     border-radius: 4px;
+    font-weight: normal;
   }
   .inputDiv {
     display: flex;

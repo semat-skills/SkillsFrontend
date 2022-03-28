@@ -7,44 +7,37 @@ import { webColors } from "../../styles/thems";
 // }
 
 export const FooterStyle = styled.footer`
-    
   /* padding-top: 25px;
   padding-bottom: 25px; */
 
   position: relative;
   /* background: rgb(29 78 216); */
   background-color: ${webColors.color1};
-  
+  width: 100vw;
 
- 
-
-
-  .f-container{
+  .f-container {
     display: flex;
-     flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
-  padding-top: 8px;
-  padding-bottom: 6px;
+    padding-top: 8px;
+    padding-bottom: 6px;
 
-  /* width: 100%; */ //to check
-  /* max-width: auto; */
-  padding-left: 4px;
-  padding-right: 4px;
+    /* width: 100%; */ //to check
+    /* max-width: auto; */
+    padding-left: 4px;
+    padding-right: 4px;
 
-  @media (min-width: 1024px) {
-    width: 100vw;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    @media (min-width: 1024px) {
+      margin-top: 40px;
+      margin-bottom: 40px;
 
-    margin-left: 30px;
-    margin-right: 30px;
-    
+      padding-left: 112px;
+      padding-right: 112px;
+    }
   }
-  }
-
 `;
 
 export const FirstRow = styled.div`
@@ -54,15 +47,17 @@ export const FirstRow = styled.div`
   @media (min-width: 1024px) {
     flex-direction: row;
     justify-content: space-between;
-   
+    align-items:center;
+    width: 100%;
   }
+
 `;
 export const Pages = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
   font-weight: 400;
-font-size: 16px;
+  font-size: 16px;
   @media (min-width: 1024px) {
     flex-direction: row;
   }
@@ -78,7 +73,7 @@ export const Page = styled.a`
   }
   margin: 12px 0px;
   @media (min-width: 1024px) {
-    margin: 0px 28px;
+    margin-left: 50px;
   }
 `;
 
@@ -89,15 +84,27 @@ export const Subscribe = styled.div`
   font-size: 22px;
 
   color: #ffffff;
+  @media (min-width: 1024px) {
+   
+  }
+
+  .subscribeText{
+    @media (min-width: 1024px) {
+      text-align: left;
+  }
+}
 `;
 
 export const SecondRow = styled.div`
-   display: flex;
+  display: flex;
   flex-direction: column-reverse;
 
   @media (min-width: 1024px) {
     flex-direction: row;
     justify-content: space-between;
+    align-items:baseline;
+    width: 100%;
+    padding-top: 30px;
     /* width: 100vw;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -105,67 +112,62 @@ export const SecondRow = styled.div`
     margin-left: 112px;
     margin-right: 112px; */
   }
-  a{
-  text-decoration: none !important; 
-  color: white;
-}
-  .soc{
+  a {
+    text-decoration: none !important;
+    color: white;
+  }
+  .soc {
     height: 30px;
     width: 60px;
     color: white;
-  font-size: 20px;
-  padding: 10px;
+    font-size: 20px;
+    padding: 10px;
   }
 
-  .law{
+  .law {
     display: flex;
     flex-direction: column;
     font-weight: 400;
-font-size: 15px;
+    font-size: 15px;
     @media (min-width: 1024px) {
-    flex-direction: row;
-    align-items: left;
+      flex-direction: row;
+      align-items: left;
+    }
   }
 
-
-  }
-
-  .social{
+  .social {
     margin-top: 20px;
     margin-bottom: 20px;
 
     @media (min-width: 1024px) {
       margin-top: 0px;
-    margin-bottom: 0px;
-    /* margin-left: 20px; */
-   
+      margin-bottom: 0px;
+      justify-items: flex-end;
+      /* margin-left: 20px; */
+    }
   }
-  }
-  .terms{
+  .terms {
     display: flex;
     flex-direction: row;
     justify-items: center;
     /* justify-content: space-between; */
-
   }
-  .term{
+  .term {
     margin-right: 20px;
   }
-  .privacy{
+  .privacy {
     margin-left: 20px;
   }
-  .copy{
+  .copy {
     margin-top: 20px;
     margin-bottom: 20px;
     @media (min-width: 1024px) {
       margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: 20px;
-  }
-
+      margin-bottom: 0px;
+      margin-left: 20px;
+    }
   }
 `;
-
 
 export const Input = styled.input`
   width: 278px;
@@ -177,7 +179,6 @@ export const Input = styled.input`
   border-radius: 4px;
 `;
 
-
 export const SubscribeButton = styled.button`
   width: 46.5px;
   height: 48px;
@@ -188,4 +189,3 @@ export const SubscribeButton = styled.button`
   color: white;
   border-radius: 8px 8px 0px 0px;
 `;
-

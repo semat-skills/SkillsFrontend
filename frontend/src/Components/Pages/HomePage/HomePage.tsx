@@ -8,15 +8,12 @@ interface MainContainerProps {}
 
 const MainContainer: React.FC<MainContainerProps> = ({}) => {
   return (
-
     <HomeContainer>
-
       <Header />
       <MainPage />
       <Footer />
     </HomeContainer>
   );
 };
-
 
 export default MainContainer;

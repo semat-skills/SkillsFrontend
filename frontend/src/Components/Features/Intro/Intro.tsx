@@ -20,9 +20,9 @@ const Intro: React.FC<IntroProps> = ({}) => {
                   navigate('/login');
                 }}></Button>
                 </div>
-              
+              <div className='photoDiv'>
               <PhotoD></PhotoD>
-           
+              </div>
 
             </IntroDiv>
         );

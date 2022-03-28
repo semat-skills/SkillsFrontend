@@ -19,8 +19,10 @@ export const Footer: React.FC<FooterProps> = () => {
         <div className="f-container">
         <FirstRow>
           <Subscribe>
+            <div className="subscribeText">
             Subscribe to our Newsletter
-            <br />
+            </div>
+            {/* <br /> */}
             <Input placeholder="Email Address"></Input>
             <SubscribeButton>&gt;</SubscribeButton>
           </Subscribe>

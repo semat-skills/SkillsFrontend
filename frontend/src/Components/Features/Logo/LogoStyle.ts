@@ -8,10 +8,12 @@ export const LogoDiv = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${webColors.color1};
-  width: 120px;
+  /* width: 120px;
   height: ${px2vw(70)};
   margin-left: 6.3vw;
-  margin-top: 0.3vh;
+  margin-top: 0.3vh; */
+  min-width: 76px;
+min-height: 36px;
 
-  font-size: 2vw;
+  font-size: 3.5vw;
 `;

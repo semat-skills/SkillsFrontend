@@ -11,9 +11,14 @@ interface OurFeaturesProps {
 export const OurFeatures: React.FC<OurFeaturesProps> = ({}) => {
         return (
             <FeaturesDiv>
+                
                 <CInfo title='My Title'
                 text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum gravida scelerisque nunc senectus ac. Aliquam auctor lacinia pellentesque purus viverra dignissim. Vel quam varius.'/>
+                <div className='stories'>
                 <Stories />
+                </div>
+        
+                
                 
             </FeaturesDiv>
         );
