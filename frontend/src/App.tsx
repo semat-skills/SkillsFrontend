@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import HomePage from "./Components/Pages/HomePage/HomePage";
-import { ErrorPage } from "./Components/Pages/ErrorPage";
-import { Login } from "./Components/Pages/LoginP/Login";
-import { Signup } from "./Components/Pages/SignupP/Signup";
-// import {GlobalStyle} from "./Components/styles/globalStyle"
+import HomePage from "./Pages/HomePage/HomePage";
+import { ErrorPage } from "./Pages/ErrorPage";
+import { Login } from "./Pages/LoginPage/Login";
+import { Signup } from "./Pages/SignupPage/Signup";
+import { FunctionalPage } from "./Pages/FunctionalPage/FunctionalPage";
+import { NewCardPage } from "./Pages/NewCardPage/NewCardPage";
 
 const App: React.FC = () => {
   return (
@@ -12,6 +13,8 @@ const App: React.FC = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/functional" element={<FunctionalPage />} />
+      <Route path="/newcard" element={<NewCardPage />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );

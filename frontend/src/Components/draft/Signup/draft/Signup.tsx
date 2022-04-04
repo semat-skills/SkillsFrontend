@@ -2,7 +2,7 @@ import React from "react";
 import * as Yup from "yup";
 import { withFormik, FormikProps, FormikErrors, Form, Field } from "formik";
 import { useNavigate } from "react-router-dom";
-import { Button } from '../../../Features/Button/Button'
+import { Button } from '../../../Button/Button'
 import { MainForm, PageStyle } from "../../Login/LoginStyled";
 
 interface SignupProps {
