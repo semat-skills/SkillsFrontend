@@ -32,7 +32,6 @@ export const Container = styled.div`
     right: 15.47%;
     top: 1565px;
 
-   
     left: 24px;
     top: 1522px;
 
@@ -48,7 +47,7 @@ export const Container = styled.div`
     align-items: center;
 
     @media (min-width: 1024px) {
-        width: 50%;
+      width: 50%;
     }
   }
 `;

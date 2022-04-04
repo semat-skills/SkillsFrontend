@@ -3,7 +3,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { useNavigate } from "react-router-dom";
 import Card from "@material-ui/core/Card";
 import { Button } from "../../Components/Button/Button";
-import { MyForm } from "../../Consts/styles/Form.style";
+import { Container } from "../../Assets/styles/Form.style";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -211,7 +211,7 @@ export const SignupForm = () => {
     console.log(JSON.stringify(data, null, 2));
   };
   return (
-    <MyForm className="container">
+    <Container>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Card className={classes.card}>
           <h2>
@@ -337,7 +337,7 @@ export const SignupForm = () => {
           </div>
         </Card>
       </form>
-    </MyForm>
+    </Container>
   );
 };
 

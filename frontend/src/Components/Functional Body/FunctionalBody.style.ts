@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Colors } from "../../Consts/styles/thems";
+import { Colors } from "../../Assets/styles/thems";
 
 export const Container = styled.div`
   display: flex;
@@ -9,17 +9,17 @@ export const Container = styled.div`
   .functional-intro {
     margin: 40px;
   }
-  .active-btn{
+  .active-btn {
     width: 17px;
-height: 17px;
-border-radius: 50%;
-background-color: red;
-margin-right: 10px;
+    height: 17px;
+    border-radius: 50%;
+    background-color: red;
+    margin-right: 10px;
   }
   .push {
-    justify-content:flex-end;
+    justify-content: flex-end;
     margin-left: auto;
-}
+  }
   .section-title {
     width: 338.73px;
     padding-bottom: 10px;
@@ -55,12 +55,16 @@ margin-right: 10px;
     color: #3a3a3a;
 
     margin-top: 30px;
+    margin-bottom: 30px;
     align-items: center;
   }
 
   .cards-results {
-    padding: 40px;
+    padding: 70px;
     background-color: ${Colors.whiteBlue};
+    @media (min-width: 1024px) {
+      padding: 106px;
+    }
   }
 
   .cards {
@@ -78,14 +82,15 @@ margin-right: 10px;
     align-items: center;
     justify-content: flex-end;
     min-width: 100%;
-    padding: 10px;
+    overflow-x: scroll;
+    /* padding: 10px; */
 
     @media (min-width: 1024px) {
-        flex-direction: row;
-        justify-content: space-between;
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
-  }
-  .leftFilters{
+  .leftFilters {
     display: flex;
     flex-direction: row;
   }

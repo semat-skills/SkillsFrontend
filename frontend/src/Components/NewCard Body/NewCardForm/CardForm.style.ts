@@ -1,15 +1,12 @@
 import styled from "styled-components";
 
-
 export const Container = styled.div`
   max-width: 511px;
   min-width: 370px;
   background: #ffffff;
-  /* border-radius: 8px 8px 0px 0px; */
   font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
-  /* font-weight: 400; */
   font-size: 16px;
   margin-bottom: 70px;
   margin-top: 10px;
@@ -17,7 +14,6 @@ export const Container = styled.div`
   @media (min-width: 1024px) {
     min-width: 511px;
     max-width: 600px;
-
   }
   .center {
     display: flex;
@@ -28,7 +24,7 @@ export const Container = styled.div`
     height: 72px;
     @media (min-width: 1024px) {
       justify-content: flex-start;
-  }
+    }
   }
 
   p {
@@ -46,10 +42,10 @@ export const Container = styled.div`
     border-radius: 4px;
     font-weight: normal;
   }
-  .input-textarea{
-      min-height: 220px;
+  .input-textarea {
+    min-height: 220px;
   }
-  .input-file{
+  .input-file {
     min-height: 45px;
   }
   .inputDiv {

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Container } from "./Navbar.style";
-import { useParams } from "react-router-dom";
-import Scroll from "react-scroll";
 import { Link } from "react-scroll";
 
-interface NavbarProps {}
+interface NavbarProps {
+  //todo
+}
 
 export const Navbar: React.FC<NavbarProps> = ({}) => {
   const [isInsparation, setInsparation] = useState<boolean>(false);
@@ -17,7 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
     <Container>
       <div className="nav-bar">
         <div
-          className=""
+          className="section-text"
           //   className={className}
           // onClick={IntroScroll}
         >
@@ -26,15 +26,15 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
             // spy={true}
             // smooth={true}
             // duration={500}
-            // className='some-class'
+            // className='text'
             // activeClass='some-active-class'
           >
             Intro
-            <div
+            {/* <div
             // className={selected ? "headerlink-dot-active" : "headerlink-dot"}
             >
               •
-            </div>
+            </div> */}
           </Link>
         </div>
         <div
@@ -56,14 +56,14 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
             // activeClass='some-active-class'
           >
             Insparation
-            <div
+            {/* <div
               className={
                 isInsparation ? "headerlink-dot-active" : "headerlink-dot"
               }
               onClick={handleisparation}
             >
               •
-            </div>
+            </div> */}
           </Link>
         </div>
         <div
@@ -84,11 +84,11 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
             // activeClass='some-active-class'
           >
             Features
-            <div
+            {/* <div
             // className={selected ? "headerlink-dot-active" : "headerlink-dot"}
             >
               •
-            </div>
+            </div> */}
           </Link>
         </div>
       </div>

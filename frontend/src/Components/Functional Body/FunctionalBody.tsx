@@ -107,13 +107,15 @@ export const FunctionalBody: React.FC = () => {
         <div className="section-title">All Results</div>
         <h4>Sort By</h4>
         <div className="filters">
-            <div className="leftFilters">
-          <div className="filter-btn">Date</div>
-          <div className="filter-btn">Type</div>
-          <div className="filter-btn">Price</div>
+          <div className="leftFilters">
+            <div className="filter-btn">Date</div>
+            <div className="filter-btn">Type</div>
+            <div className="filter-btn">Price</div>
           </div>
           <div className="rightFilters">
-          <div className="filter-btn push"><div className="active-btn"></div>Filter</div>
+            <div className="filter-btn push">
+              <div className="active-btn"></div>Filter
+            </div>
           </div>
         </div>
 

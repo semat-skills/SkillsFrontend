@@ -3,8 +3,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { useNavigate } from "react-router-dom";
 import Card from "@material-ui/core/Card";
 import { Button } from "../../Button/Button";
-import { MyForm } from "../../../Consts/styles/Form.style";
-import {Container} from './CardForm.style'
+import { Container } from "./CardForm.style";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -22,15 +21,15 @@ const useStyles = makeStyles((theme: Theme) =>
 type State = {
   cardName: string;
   cardContent: string;
-  cardImg:string;
+  cardImg: string;
   isButtonDisabled: boolean;
   helperText: string;
 };
 
 const initialState: State = {
-    cardName: "",
-    cardContent: "",
-    cardImg:"",
+  cardName: "",
+  cardContent: "",
+  cardImg: "",
   isButtonDisabled: true,
   helperText: "",
 };
@@ -55,11 +54,11 @@ const reducer = (state: State, action: Action): State => {
         ...state,
         cardContent: action.payload,
       };
-      case "setCardImg":
-        return {
-          ...state,
-          cardImg: action.payload,
-        };
+    case "setCardImg":
+      return {
+        ...state,
+        cardImg: action.payload,
+      };
     case "setIsButtonDisabled":
       return {
         ...state,
@@ -100,7 +99,10 @@ export const CardForm = () => {
   const handleLogin = () => {
     console.log(state.cardName);
     console.log(state.cardContent);
-    if (state.cardName === "admin@email.com" && state.cardContent === "password") {
+    if (
+      state.cardName === "admin@email.com" &&
+      state.cardContent === "password"
+    ) {
       dispatch({
         type: "loginSuccess",
         payload: "Login Successfully",
@@ -142,11 +144,8 @@ export const CardForm = () => {
 
   const validationSchema = Yup.object().shape({
     cardName: Yup.string().required("Card Name is required"),
-    cardContent: Yup.string()
-      .required("Card Content is required"),
-    //   .min(6, "Password must be at least 6 characters")
-    //   .max(40, "Password must not exceed 40 characters"),
-    cardImg: Yup.string()
+    cardContent: Yup.string().required("Card Content is required"),
+    cardImg: Yup.string(),
   });
 
   const {
@@ -162,9 +161,7 @@ export const CardForm = () => {
     console.log(JSON.stringify(data, null, 2));
   };
   return (
-    <Container 
-    className="container"
-    >
+    <Container className="container">
       <form onSubmit={handleSubmit(onSubmit)}>
         <Card className={classes.card}>
           <div>
@@ -185,12 +182,8 @@ export const CardForm = () => {
             </div>
             <div className="inputDiv">
               <label>Card Content</label>
-              {/* <textarea>
-
-              </textarea> */}
               <textarea
                 id="cardContent"
-                // type="textarea"
                 placeholder="Card Content"
                 {...register("cardContent")}
                 // onChange={handleCardContentChange}
@@ -199,10 +192,11 @@ export const CardForm = () => {
                   errors.cardContent ? "is-invalid" : ""
                 }`}
               />
-              <div className="invalid-feedback">{errors.cardContent?.message}</div>
+              <div className="invalid-feedback">
+                {errors.cardContent?.message}
+              </div>
             </div>
             <div className="inputDiv">
-              {/* <label>Password</label> */}
               <input
                 id="cardImg"
                 type="file"

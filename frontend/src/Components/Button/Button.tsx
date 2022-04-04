@@ -4,7 +4,7 @@ import { ButtonDiv } from "./Button.style";
 interface ButtonProps {
   type?: "button" | "submit" | "reset";
   text: string;
-  disabled?: boolean & (boolean | (() => void));
+  disabled?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 

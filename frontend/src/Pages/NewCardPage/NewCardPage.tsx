@@ -1,6 +1,5 @@
 import React from "react";
 import { Footer } from "../../Components/Footer/Footer";
-import { FunctionalBody } from "../../Components/Functional Body/FunctionalBody";
 import Header from "../../Components/Header/Header";
 import { NewCardBody } from "../../Components/NewCard Body/NewCardBody";
 import { Container } from "./NewCardPage.style";

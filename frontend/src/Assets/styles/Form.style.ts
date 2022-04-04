@@ -1,6 +1,6 @@
 import styled from "styled-components";
-
-export const MyForm = styled.div`
+//change name
+export const Container = styled.div`
   max-width: 511px;
   min-width: 370px;
   background: #ffffff;

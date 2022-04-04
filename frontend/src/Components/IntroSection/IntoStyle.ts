@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Colors } from "../../Consts/styles/thems";
+import { Colors } from "../../Assets/styles/thems";
 
 export const Container = styled.div`
   background-color: ${Colors.whiteBlue};

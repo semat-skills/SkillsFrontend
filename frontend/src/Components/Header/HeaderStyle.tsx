@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Colors } from "../../Consts/styles/thems";
+import { Colors } from "../../Assets/styles/thems";
 
 export const Container = styled.header`
   background-color: ${Colors.lightTurquoise};
@@ -45,7 +45,7 @@ export const Container = styled.header`
   .nav-title {
     padding: 0 10px;
   }
-  .profilePicture{
+  .profilePicture {
     min-height: 60px;
     min-width: 60px;
     border-radius: 50%;
@@ -71,7 +71,7 @@ export const Container = styled.header`
     padding: 0px 10px;
   }
 
-  .login-signup-nav{
+  .login-signup-nav {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -79,9 +79,8 @@ export const Container = styled.header`
   }
 `;
 export const Wrapper = styled.div`
-
-display: flex;
-flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import img1 from "../../Consts/images/h4.jpg";
+import img1 from "../../Assets/images/h4.jpg";
 
 export const Circle = styled.div`
   background-color: green;

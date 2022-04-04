@@ -22,7 +22,7 @@ const Intro: React.FC = ({}) => {
         ></Button>
       </div>
       <div className="photoDiv">
-        <CircleImg imgUrl='https://images.pexels.com/photos/1687514/pexels-photo-1687514.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'/>
+        <CircleImg imgUrl="https://images.pexels.com/photos/1687514/pexels-photo-1687514.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
       </div>
     </Container>
   );

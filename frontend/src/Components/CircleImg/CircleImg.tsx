@@ -1,13 +1,10 @@
-import React from 'react'
-import { Circle } from './CircleImg.style';
+import React from "react";
+import { Circle } from "./CircleImg.style";
 
 interface CircleProps {
-    imgUrl:string,
+  imgUrl: string;
 }
 
-export const CircleImg: React.FC<CircleProps> = ({imgUrl}) => {
-        return (
-            <Circle/>
-         
-        );
-}
+export const CircleImg: React.FC<CircleProps> = ({ imgUrl }) => {
+  return <Circle />;
+};
