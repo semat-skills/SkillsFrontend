@@ -8,12 +8,13 @@ import {
 } from "@mui/material";
 import { Container } from "./CardStyle";
 
-interface CardProps {
-  img: string;
-  title: string;
-  text: string;
-  maxWidth?: number;
-}
+// interface CardProps {
+//   img: string;
+//   title: string;
+//   text: string;
+//   maxWidth?: number;
+// }
+///new comment
 
 export const CardComp: React.FC<CardProps> = ({ img, title, text }) => {
   return (
