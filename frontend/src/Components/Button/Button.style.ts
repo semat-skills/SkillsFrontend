@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Colors } from "../../Assets/styles/thems";
 
-export const ButtonDiv = styled.button`
+export const StyledButton = styled.button`
   padding: 10px;
 
   background-color: ${Colors.pelorous};

@@ -1,14 +1,12 @@
 import styled from "styled-components";
-//change name
+
 export const Container = styled.div`
   max-width: 511px;
   min-width: 370px;
-  background: #ffffff;
+  background-color: #ffffff;
   border-radius: 8px 8px 0px 0px;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
-  /* font-weight: 400; */
   font-size: 16px;
   margin-bottom: 70px;
 

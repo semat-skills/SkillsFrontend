@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import px2vw from "../../Components/draft/px2vw";
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
@@ -22,4 +22,4 @@ export const GlobalStyle = createGlobalStyle`
 
 `;
 
-export default Global;
+export default GlobalStyle;

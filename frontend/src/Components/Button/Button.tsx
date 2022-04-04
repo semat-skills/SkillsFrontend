@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonDiv } from "./Button.style";
+import { StyledButton } from "./Button.style";
 
 interface ButtonProps {
   type?: "button" | "submit" | "reset";
@@ -15,8 +15,10 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
 }) => {
   return (
-    <ButtonDiv type={type} disabled={disabled} onClick={onClick}>
+    <>
+    <StyledButton type={type} disabled={disabled} onClick={onClick}>
       {text}
-    </ButtonDiv>
+    </StyledButton>
+    </>
   );
 };
