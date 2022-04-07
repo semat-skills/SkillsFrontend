@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Colors } from "./thems";
+import { Colors } from "../../Assets/styles/thems";
 
 export const Container = styled.div`
   max-width: 511px;
@@ -29,7 +29,7 @@ export const Container = styled.div`
     padding-top: 10px;
   }
 
-  .input-text {
+  /* .input-text {
     background: #ffffff;
     font-size: medium;
     padding: 12px 16px;
@@ -37,7 +37,7 @@ export const Container = styled.div`
     box-sizing: border-box;
     border-radius: 4px;
     font-weight: normal;
-  }
+  } */
   .input-textarea {
     min-height: 220px;
   }
@@ -52,9 +52,9 @@ export const Container = styled.div`
     text-decoration: none !important;
   }
 
-  .check-text {
+  .terms-text {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   .terms {
     margin-left: 5px;
@@ -68,5 +68,14 @@ export const Container = styled.div`
       justify-content: space-between;
       width: auto;
     }
+  }
+
+  .check-text {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .click {
+    cursor: pointer;
   }
 `;

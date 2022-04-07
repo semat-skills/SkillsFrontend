@@ -1,1 +1,40 @@
  {/* {screenWidth <= 1024 && <Navbar />} */}
+
+
+    // validate={(values) => {
+        //   console.log("Form Data", values);
+
+        //   let errors = {};
+        //   if (values) {
+        //     if (!values.email) {
+        //       errors.email = "Required";
+        //     }
+
+        //     if (!values.password) {
+        //         errors.email = "Required";
+        //       }
+        //   }
+
+        //   return errors;
+        // }}
+
+
+
+
+         <div className="inputDiv">
+            <label>Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Email"
+              value={values.email}
+              onChange={handleChange}
+              className={`input-text form-control ${
+                errors.email ? "is-invalid" : ""
+              }`}
+            />
+            {errors.email && touched.email && (
+              <div className="text-danger">{errors.email}</div>
+            )}
+          </div>

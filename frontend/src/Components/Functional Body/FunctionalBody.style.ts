@@ -7,7 +7,10 @@ export const Container = styled.div`
   justify-content: start;
 
   .functional-intro {
-    margin: 40px;
+    padding: 70px;
+    @media (min-width: 1024px) {
+      padding: 106px;
+    }
   }
   .active-btn {
     width: 17px;
@@ -19,37 +22,41 @@ export const Container = styled.div`
   .push {
     justify-content: flex-end;
     margin-left: auto;
+    margin-right: 10px;
+    @media (min-width: 1024px) {
+      margin-right: 0px;
+    }
+  }
+  .left-btn{
+    margin-left: 0px;
+    margin-right: 10px;
+    @media (min-width: 1024px) {
+      margin-right: 10px;
+    }
+
   }
   .section-title {
     width: 338.73px;
     padding-bottom: 10px;
     left: 0px;
     top: 0px;
-    font-family: "Roboto";
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
     line-height: 38px;
 
-    color: #000000;
+    color: black;
   }
 
   .section-text {
-    font-family: "Roboto";
-
     height: 144px;
-    left: 14.4%;
-    right: 15.47%;
-    top: 1565px;
-
     width: 50%;
     left: 24px;
     top: 1522px;
 
-    font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: large;
     line-height: 24px;
 
     color: #3a3a3a;
@@ -72,6 +79,7 @@ export const Container = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 20px;
     margin-top: 40px;
   }
@@ -83,7 +91,6 @@ export const Container = styled.div`
     justify-content: flex-end;
     min-width: 100%;
     overflow-x: scroll;
-    /* padding: 10px; */
 
     @media (min-width: 1024px) {
       flex-direction: row;
@@ -101,9 +108,8 @@ export const Container = styled.div`
     justify-content: center;
     width: 104px;
     height: 36px;
-    margin: 10px;
     align-items: center;
-    border: 1px solid #000000;
+    border: 1px solid black;
     box-sizing: border-box;
     border-radius: 56px;
     font-size: medium;
@@ -112,5 +118,9 @@ export const Container = styled.div`
       cursor: pointer;
       background-color: skyblue;
     }
+  }
+
+  h4{
+    padding-bottom: 20px;
   }
 `;

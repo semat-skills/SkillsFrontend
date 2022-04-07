@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import smallPhoto from "../images/h3.jpeg";
 
 export const Container = styled.div`
   font-family: "Roboto";
@@ -60,5 +61,6 @@ export const Container = styled.div`
 
     border: 1.91632px solid #000000;
     box-sizing: border-box;
+    background-image: url(${smallPhoto});
   }
 `;

@@ -34,16 +34,12 @@ export const Container = styled.div`
   }
 
   .StoryBox {
-    font-family: "Roboto";
-
     width: 323px;
     height: 229px;
     left: 24px;
     top: 1522px;
 
     background-color: ${Colors.lightBlue};
-
-    font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;

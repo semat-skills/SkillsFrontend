@@ -1,11 +1,8 @@
 import React from "react";
-import { Button } from "../Button/Button";
 import { Container } from "./NewCardBody.style";
 import CardForm from "./NewCardForm/CardForm";
 
-interface NewCardBodyProps {}
-
-export const NewCardBody: React.FC<NewCardBodyProps> = ({}) => {
+export const NewCardBody: React.FC = () => {
   return (
     <Container>
       <div className="newcard-intro">

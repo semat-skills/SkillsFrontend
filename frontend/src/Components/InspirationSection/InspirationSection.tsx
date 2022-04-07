@@ -1,64 +1,20 @@
 import React, { useRef, useState } from "react";
 import { CardComp } from "../Card/Card";
 import { Container } from "./InspirationSectionStyle";
+import cardData from "../../Consts/CardsData";
 
-interface InspirationSectionProps {
-  //cards as props will be add after connection to db
-}
 type CardInfo = {
   img: string;
   title: string;
   text: string;
 };
 
-export const Inspiration: React.FC<InspirationSectionProps> = ({}) => {
+export const Inspiration: React.FC = () => {
   const InsparationSection = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const [CardsArr, setCardsArr] = useState<CardInfo[]>([
-    {
-      img: "https://images.pexels.com/photos/2829336/pexels-photo-2829336.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-  species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/6034584/pexels-photo-6034584.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-  species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-  species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/755871/pexels-photo-755871.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-  species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/6034584/pexels-photo-6034584.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-  species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-  species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/755871/pexels-photo-755871.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-  species, ranging across all continents except Antarctica`,
-    },
-  ]);
+  const [CardsArr, setCardsArr] = useState<CardInfo[]>(cardData);
+
   const handlePrev = () => {
     if (containerRef) {
       const container = containerRef.current;

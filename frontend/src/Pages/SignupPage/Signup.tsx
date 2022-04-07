@@ -1,11 +1,9 @@
 import React from "react";
 import { CircleImg } from "../../Components/CircleImg/CircleImg";
 import { Container } from "../../Assets/styles/login-signup.style";
-import SignupForm from "./SignupForm";
+import FormikSignup from "../../Components/Form/FormikSignup";
 
-interface SignupProps {}
-
-export const Signup: React.FC<SignupProps> = () => {
+export const Signup: React.FC = () => {
   return (
     <Container>
       <div className="ImgFrame">
@@ -15,7 +13,7 @@ export const Signup: React.FC<SignupProps> = () => {
         </div>
       </div>
       <div className="FormPart center">
-        <SignupForm></SignupForm>
+        <FormikSignup />
       </div>
     </Container>
   );

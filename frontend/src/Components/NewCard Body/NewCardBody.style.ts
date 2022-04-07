@@ -15,18 +15,15 @@ export const Container = styled.div`
     padding-bottom: 10px;
     left: 0px;
     top: 0px;
-    font-family: "Roboto";
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
     line-height: 38px;
 
-    color: #000000;
+    color: black;
   }
 
   .section-text {
-    font-family: "Roboto";
-
     height: 144px;
     left: 14.4%;
     right: 15.47%;
@@ -35,7 +32,6 @@ export const Container = styled.div`
     left: 24px;
     top: 1522px;
 
-    font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -49,5 +45,10 @@ export const Container = styled.div`
     @media (min-width: 1024px) {
       width: 50%;
     }
+  }
+
+  .newCard-form{
+    display: flex;
+    justify-content: center;
   }
 `;

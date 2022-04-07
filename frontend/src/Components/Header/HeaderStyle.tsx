@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "../../Assets/styles/thems";
+import profileImg from '../../Assets/images/h4.jpg'
 
 export const Container = styled.header`
   background-color: ${Colors.lightTurquoise};
@@ -49,9 +50,9 @@ export const Container = styled.header`
     min-height: 60px;
     min-width: 60px;
     border-radius: 50%;
-    background-color: beige;
+    background-image: ${profileImg};
     margin-left: 10px;
-    border: 1px solid #000000;
+    border: 1px solid black;
   }
 
   .menu {

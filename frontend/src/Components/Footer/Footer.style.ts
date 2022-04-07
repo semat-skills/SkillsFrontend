@@ -78,7 +78,6 @@ export const FirstRow = styled.div`
   }
 
   .subscribe {
-    font-family: "Roboto";
     font-style: normal;
     font-weight: 500;
     font-size: 22px;

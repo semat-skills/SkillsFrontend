@@ -8,11 +8,16 @@ import {
 } from "@mui/material";
 import { Container } from "./CardStyle";
 
+interface CardProps {
+  img: string;
+  title: string;
+  text: string;
+}
 
 export const CardComp: React.FC<CardProps> = ({ img, title, text }) => {
   return (
     <Container>
-      <Card sx={{ maxWidth: 345, minWidth: 200 }}>
+      <Card sx={{ maxWidth: 230, minWidth: 200 }}>
         <CardActionArea>
           <CardMedia
             component="img"
@@ -24,7 +29,7 @@ export const CardComp: React.FC<CardProps> = ({ img, title, text }) => {
             <Typography gutterBottom variant="h4" component="div">
               {title}
             </Typography>
-            <Typography variant="body1">{text}</Typography>
+            <Typography className="typography">{text}</Typography>
           </CardContent>
         </CardActionArea>
       </Card>

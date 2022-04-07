@@ -9,13 +9,13 @@ export const MainBody: React.FC = () => {
   return (
     <Container>
       <Element id="intro" name="intro">
-        <Intro></Intro>
+        <Intro />
       </Element>
       <Element id="insparation" name="insparation">
-        <Inspiration></Inspiration>
+        <Inspiration />
       </Element>
       <Element id="features" name="features">
-        <OurFeatures></OurFeatures>
+        <OurFeatures />
       </Element>
     </Container>
   );

@@ -2,8 +2,8 @@ import React, { useReducer, useEffect } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { useNavigate } from "react-router-dom";
 import Card from "@material-ui/core/Card";
-import { Button } from "../../Components/Button/Button";
-import { Container } from "../../Assets/styles/Form.style";
+import { Button } from "../../Button/Button";
+import { Container } from "../../../Assets/styles/Form.style";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -72,7 +72,7 @@ const reducer = (state: State, action: Action): State => {
 export const LoginForm = () => {
   const classes = useStyles();
   const [state, dispatch] = useReducer(reducer, initialState);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (state.email.trim() && state.password.trim()) {
@@ -89,8 +89,6 @@ export const LoginForm = () => {
   }, [state.email, state.password]);
 
   const handleLogin = () => {
-    console.log(state.email);
-    console.log(state.password);
     if (state.email === "admin@email.com" && state.password === "password") {
       dispatch({
         type: "loginSuccess",
@@ -102,13 +100,11 @@ export const LoginForm = () => {
         type: "loginFailed",
         payload: "Incorrect email or password",
       });
-      console.log(state.helperText);
     }
   };
 
   const handleKeyPress = (event: React.KeyboardEvent) => {
     if (event.keyCode === 13 || event.which === 13) {
-      console.log("test");
       state.isButtonDisabled || handleLogin();
     }
   };
@@ -149,7 +145,6 @@ export const LoginForm = () => {
 
   const onSubmit = (data: State) => {
     handleLogin();
-    console.log(JSON.stringify(data, null, 2));
   };
   return (
     <Container>

@@ -12,13 +12,12 @@ export const StyledButton = styled.button`
   border-radius: 6px;
   border-color: ${Colors.pelorous};
 
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 23px;
 
-  color: #ffffff;
+  color: ${Colors.white};
   @media (min-width: 1024px) {
     left: 106px;
     top: 477px;

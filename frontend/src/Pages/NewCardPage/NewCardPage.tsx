@@ -4,13 +4,11 @@ import Header from "../../Components/Header/Header";
 import { NewCardBody } from "../../Components/NewCard Body/NewCardBody";
 import { Container } from "./NewCardPage.style";
 
-interface NewCardPageProps {}
-
-export const NewCardPage: React.FC<NewCardPageProps> = ({}) => {
+export const NewCardPage: React.FC = () => {
   return (
     <Container>
-      <Header />
-      <NewCardBody/>
+      <Header headerOf='newCard'/>
+      <NewCardBody />
       <Footer />
     </Container>
   );

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Container } from "./FunctionalBody.style";
 import { Button } from "../Button/Button";
 import { CardComp } from "../Card/Card";
+import cardData from "../../Consts/CardsData";
 
 type CardInfo = {
   img: string;
@@ -11,81 +12,8 @@ type CardInfo = {
 };
 
 export const FunctionalBody: React.FC = () => {
-  let navigate = useNavigate();
-  const [CardsArr, setCardsArr] = useState<CardInfo[]>([
-    {
-      img: "https://images.pexels.com/photos/2829336/pexels-photo-2829336.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-      species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/6034584/pexels-photo-6034584.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-      species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-      species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/755871/pexels-photo-755871.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-      species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/2829336/pexels-photo-2829336.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-        species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/6034584/pexels-photo-6034584.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-        species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-        species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/755871/pexels-photo-755871.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-        species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/2829336/pexels-photo-2829336.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-        species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/6034584/pexels-photo-6034584.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-        species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/869258/pexels-photo-869258.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-        species, ranging across all continents except Antarctica`,
-    },
-    {
-      img: "https://images.pexels.com/photos/755871/pexels-photo-755871.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      title: "Name",
-      text: `Lizards are a widespread group of squamate reptiles, with over 6,000
-        species, ranging across all continents except Antarctica`,
-    },
-  ]);
+  const navigate = useNavigate();
+  const [CardsArr, setCardsArr] = useState<CardInfo[]>(cardData);
   return (
     <Container>
       <div className="functional-intro">
@@ -108,12 +36,12 @@ export const FunctionalBody: React.FC = () => {
         <h4>Sort By</h4>
         <div className="filters">
           <div className="leftFilters">
-            <div className="filter-btn">Date</div>
-            <div className="filter-btn">Type</div>
-            <div className="filter-btn">Price</div>
+            <div className="filter-btn left-btn">Date</div>
+            <div className="filter-btn left-btn">Type</div>
+            <div className="filter-btn left-btn">Price</div>
           </div>
           <div className="rightFilters">
-            <div className="filter-btn push">
+            <div className="filter-btn push main-btn">
               <div className="active-btn"></div>Filter
             </div>
           </div>

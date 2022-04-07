@@ -1,7 +1,7 @@
 import React from "react";
 import { CircleImg } from "../../../CircleImg/CircleImg";
 import { Container } from "../../../../Assets/styles/login-signup.style";
-import LoginForm from "../../../../Pages/LoginPage/LoginForm";
+import LoginForm from "../../login-signup forms/LoginForm";
 
 interface LoginProps {}
 

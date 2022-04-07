@@ -7,7 +7,7 @@ import { Footer } from "../../Components/Footer/Footer";
 const MainContainer: React.FC = () => {
   return (
     <Container>
-      <Header />
+      <Header headerOf='home' />
       <MainBody />
       <Footer />
     </Container>

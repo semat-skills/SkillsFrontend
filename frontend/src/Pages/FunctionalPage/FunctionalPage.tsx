@@ -4,12 +4,10 @@ import { FunctionalBody } from "../../Components/Functional Body/FunctionalBody"
 import Header from "../../Components/Header/Header";
 import { Container } from "./FunctionalPage.style";
 
-interface FunctionalPageProps {}
-
-export const FunctionalPage: React.FC<FunctionalPageProps> = ({}) => {
+export const FunctionalPage: React.FC = () => {
   return (
     <Container>
-      <Header />
+      <Header headerOf='functional'/>
       <FunctionalBody />
       <Footer />
     </Container>

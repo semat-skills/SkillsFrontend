@@ -1,10 +1,10 @@
 import styled from "styled-components";
+import { Colors } from "../../../Assets/styles/thems";
 
 export const Container = styled.div`
   max-width: 511px;
   min-width: 370px;
-  background: #ffffff;
-  font-family: "Roboto";
+  background: ${Colors.white};
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -34,7 +34,7 @@ export const Container = styled.div`
   }
 
   .input-text {
-    background: #ffffff;
+    background: ${Colors.white};
     font-size: medium;
     padding: 12px 16px;
     border: 1px solid #d6d6d6;

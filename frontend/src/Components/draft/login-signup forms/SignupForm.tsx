@@ -2,8 +2,8 @@ import React, { useReducer, useEffect } from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { useNavigate } from "react-router-dom";
 import Card from "@material-ui/core/Card";
-import { Button } from "../../Components/Button/Button";
-import { Container } from "../../Assets/styles/Form.style";
+import { Button } from "../../Button/Button";
+import { Container } from "../../../Assets/styles/Form.style";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -96,7 +96,7 @@ const reducer = (state: State, action: Action): State => {
 export const SignupForm = () => {
   const classes = useStyles();
   const [state, dispatch] = useReducer(reducer, initialState);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   //todo
   useEffect(() => {
@@ -120,9 +120,6 @@ export const SignupForm = () => {
 
   //todo
   const handleSignup = () => {
-    console.log(state.email);
-    console.log(state.password);
-
     const newUser = {
       fullname: state.fullname,
       email: state.email,
@@ -316,6 +313,8 @@ export const SignupForm = () => {
             </div>
             {/* <div className="invalid-feedback">{state.helperText}</div> */}
           </div>
+
+          
           <div className="center">
             <Button
               type="submit"

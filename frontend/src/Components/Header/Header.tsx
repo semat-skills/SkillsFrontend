@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Container, Wrapper } from "./HeaderStyle";
+import { useMediaQuery } from 'react-responsive'
 import { Link } from "react-router-dom";
 import { Navbar } from "../draft/NavBar/Navbar";
 
-const Header: React.FC = ({}) => {
+type HeaderProps ={
+  headerOf: string,
+}
+const Header: React.FC<HeaderProps> = ({headerOf}) => {
   const [toggleMenu, setToggleMenu] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(true);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [header, setHeader] = useState(headerOf)
+  const isDesktop = useMediaQuery({
+    query: '(min-width: 1224px)'
+  })
 
   const toggleNav = () => {
     setToggleMenu(!toggleMenu);
   };
 
-  useEffect(() => {
-    const changeWidth = () => {
-      setScreenWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", changeWidth);
-  }, []);
+ 
 
   return (
     <Wrapper>
@@ -26,13 +26,13 @@ const Header: React.FC = ({}) => {
         <div className="logo">HIKER</div>
         {/* <Navbar /> */}
 
-        {screenWidth <= 1024 && (
+        {!isDesktop && (
           <div className="menu" onClick={toggleNav}>
             <i className="gg-menu"></i>
           </div>
         )}
 
-        {(toggleMenu || screenWidth > 1024) && !loggedIn && (
+        {(toggleMenu || isDesktop) && (header==='home') && (
           <div className="login-signup-nav">
             <Link to="/login" className="link">
               Login
@@ -44,10 +44,10 @@ const Header: React.FC = ({}) => {
           </div>
         )}
 
-        {loggedIn && screenWidth > 1024 && (
+        {!(header==='home') && isDesktop && (
           <div className="login-signup-nav">
             <Link to="/login" className="link">
-              Noam
+              Semat
             </Link>
 
             <Link to="/signup" className="link">

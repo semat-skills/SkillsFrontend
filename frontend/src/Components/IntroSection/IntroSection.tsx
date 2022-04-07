@@ -4,8 +4,8 @@ import { Button } from "../Button/Button";
 import { Container } from "./IntoStyle";
 import { CircleImg } from "../CircleImg/CircleImg";
 
-const Intro: React.FC = ({}) => {
-  let navigate = useNavigate();
+const Intro: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <div>
@@ -17,7 +17,7 @@ const Intro: React.FC = ({}) => {
         <Button
           text="Get Started"
           onClick={() => {
-            navigate("/login");
+            navigate("/signup");
           }}
         ></Button>
       </div>

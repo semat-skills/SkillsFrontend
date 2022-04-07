@@ -1,12 +1,12 @@
-import React, { useReducer, useEffect } from "react";
+import React from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { useNavigate } from "react-router-dom";
 import Card from "@material-ui/core/Card";
 import { Button } from "../../Button/Button";
 import { Container } from "./CardForm.style";
+import { Formik, FormikProps } from "formik";
 import * as Yup from "yup";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { Input } from "../../Input/Input";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,205 +18,101 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-type State = {
+type CardValues = {
   cardName: string;
   cardContent: string;
   cardImg: string;
-  isButtonDisabled: boolean;
-  helperText: string;
 };
 
-const initialState: State = {
-  cardName: "",
-  cardContent: "",
-  cardImg: "",
-  isButtonDisabled: true,
-  helperText: "",
-};
+const validationSchema = Yup.object({
+  cardName: Yup.string().required("Required"),
+  cardImg: Yup.mixed().required("File is required"),
+});
 
-type Action =
-  | { type: "setCardName"; payload: string }
-  | { type: "setCardContent"; payload: string }
-  | { type: "setCardImg"; payload: string }
-  | { type: "setIsButtonDisabled"; payload: boolean }
-  | { type: "loginSuccess"; payload: string }
-  | { type: "loginFailed"; payload: string };
-
-const reducer = (state: State, action: Action): State => {
-  switch (action.type) {
-    case "setCardName":
-      return {
-        ...state,
-        cardName: action.payload,
-      };
-    case "setCardContent":
-      return {
-        ...state,
-        cardContent: action.payload,
-      };
-    case "setCardImg":
-      return {
-        ...state,
-        cardImg: action.payload,
-      };
-    case "setIsButtonDisabled":
-      return {
-        ...state,
-        isButtonDisabled: action.payload,
-      };
-    case "loginSuccess":
-      return {
-        ...state,
-        helperText: action.payload,
-      };
-    case "loginFailed":
-      return {
-        ...state,
-        helperText: action.payload,
-      };
-  }
-};
-
-export const CardForm = () => {
-  const classes = useStyles();
-  const [state, dispatch] = useReducer(reducer, initialState);
-  let navigate = useNavigate();
-
-  useEffect(() => {
-    if (state.cardName.trim() && state.cardContent.trim()) {
-      dispatch({
-        type: "setIsButtonDisabled",
-        payload: false,
-      });
-    } else {
-      dispatch({
-        type: "setIsButtonDisabled",
-        payload: true,
-      });
-    }
-  }, [state.cardName, state.cardContent]);
-
-  const handleLogin = () => {
-    console.log(state.cardName);
-    console.log(state.cardContent);
-    if (
-      state.cardName === "admin@email.com" &&
-      state.cardContent === "password"
-    ) {
-      dispatch({
-        type: "loginSuccess",
-        payload: "Login Successfully",
-      });
-      navigate("/");
-    } else {
-      dispatch({
-        type: "loginFailed",
-        payload: "Incorrect email or password",
-      });
-      console.log(state.helperText);
-    }
+export const FormikCard: React.FC = () => {
+  const navigate = useNavigate();
+  const initialValues = {
+    cardName: "",
+    cardContent: "",
+    cardImg: "",
   };
 
-  const handleKeyPress = (event: React.KeyboardEvent) => {
-    if (event.keyCode === 13 || event.which === 13) {
-      console.log("test");
-      state.isButtonDisabled || handleLogin();
-    }
-  };
-
-  const handleCardNameChange: React.ChangeEventHandler<HTMLInputElement> = (
-    event
-  ) => {
-    dispatch({
-      type: "setCardName",
-      payload: event.target.value,
-    });
-  };
-
-  const handleCardContentChange: React.ChangeEventHandler<HTMLInputElement> = (
-    event
-  ) => {
-    dispatch({
-      type: "setCardContent",
-      payload: event.target.value,
-    });
-  };
-
-  const validationSchema = Yup.object().shape({
-    cardName: Yup.string().required("Card Name is required"),
-    cardContent: Yup.string().required("Card Content is required"),
-    cardImg: Yup.string(),
-  });
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<State>({
-    resolver: yupResolver(validationSchema),
-  });
-
-  const onSubmit = (data: State) => {
-    handleLogin();
-    console.log(JSON.stringify(data, null, 2));
+  const handleNewCard = (values: CardValues) => {
+    navigate("/functional");
   };
   return (
+    <Container>
+      <Formik<CardValues>
+        initialValues={initialValues}
+        onSubmit={(values) => {
+          handleNewCard(values);
+        }}
+        validationSchema={validationSchema}
+        component={NewCardForm}
+      ></Formik>
+    </Container>
+  );
+};
+
+let NewCardForm: (props: FormikProps<CardValues>) => JSX.Element = ({
+  handleSubmit,
+  values,
+  handleChange,
+  errors,
+  touched,
+  isSubmitting,
+}) => {
+  const classes = useStyles();
+  return (
     <Container className="container">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit} className="needs-validation">
         <Card className={classes.card}>
           <div>
-            <div className="inputDiv">
-              <label>Card Name</label>
-              <input
-                id="cardName"
-                type="text"
-                placeholder="Card Name"
-                {...register("cardName")}
-                onChange={handleCardNameChange}
-                onKeyPress={handleKeyPress}
-                className={`input-text form-control ${
-                  errors.cardName ? "is-invalid" : ""
-                }`}
-              />
-              <div className="invalid-feedback">{errors.cardName?.message}</div>
-            </div>
+            <Input
+              label="Card Name"
+              inputId="cardName"
+              inputName="cardName"
+              inputType="text"
+              placeholder="Card Name"
+              value={values.cardName}
+              onChange={handleChange}
+              className={`input-text form-control ${
+                errors.cardName ? "is-invalid" : ""
+              }`}
+              inputErrors={errors.cardName}
+              touched={touched.cardName}
+            />
             <div className="inputDiv">
               <label>Card Content</label>
               <textarea
                 id="cardContent"
+                name="cardContent"
                 placeholder="Card Content"
-                {...register("cardContent")}
-                // onChange={handleCardContentChange}
-                onKeyPress={handleKeyPress}
                 className={`input-textarea input-text form-control ${
                   errors.cardContent ? "is-invalid" : ""
                 }`}
               />
-              <div className="invalid-feedback">
-                {errors.cardContent?.message}
-              </div>
+              {errors.cardContent && touched.cardContent && (
+                <div className="text-danger">{errors.cardContent}</div>
+              )}
             </div>
-            <div className="inputDiv">
-              <input
-                id="cardImg"
-                type="file"
-                placeholder="Upload Card Image"
-                {...register("cardImg")}
-                // onChange={handlePasswordChange}
-                onKeyPress={handleKeyPress}
-                className={`input-file input-text form-control ${
-                  errors.cardImg ? "is-invalid" : ""
-                }`}
-              />
-              <div className="invalid-feedback">{errors.cardImg?.message}</div>
-            </div>
+            <Input
+              inputId="cardImg"
+              inputName="cardImg"
+              inputType="file"
+              placeholder="PasscardImgword"
+              value={values.cardImg}
+              onChange={handleChange}
+              className={`input-file input-text form-control ${
+                errors.cardImg ? "is-invalid" : ""
+              }`}
+              inputErrors={errors.cardImg}
+              touched={touched.cardImg}
+            />
           </div>
+
           <div className="center">
-            <Button
-              type="submit"
-              disabled={state.isButtonDisabled}
-              text="Create New Card"
-            ></Button>
+            <Button type="submit" text="Create New Card"></Button>
           </div>
         </Card>
       </form>
@@ -224,4 +120,4 @@ export const CardForm = () => {
   );
 };
 
-export default CardForm;
+export default FormikCard;

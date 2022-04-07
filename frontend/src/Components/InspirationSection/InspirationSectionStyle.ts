@@ -5,7 +5,6 @@ export const Container = styled.div`
   padding-top: 40px;
   padding-left: 30px;
   padding-bottom: 40px;
-  font-family: "Roboto";
   font-weight: 400;
   background-color: ${Colors.lightBlue};
   .cards {
@@ -54,13 +53,12 @@ export const Container = styled.div`
   }
 
   .title {
-    font-family: "Roboto";
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
     line-height: 38px;
     margin-bottom: 30px;
 
-    color: #000000;
+    color: black;
   }
 `;
