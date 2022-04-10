@@ -8,7 +8,6 @@ type HeaderProps = {
 };
 const Header: React.FC<HeaderProps> = ({ headerOf }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
-  const [header, setHeader] = useState(headerOf);
   const isDesktop = useMediaQuery({
     query: "(min-width: 1224px)",
   });
@@ -28,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({ headerOf }) => {
           </div>
         )}
 
-        {(toggleMenu || isDesktop) && header === "home" && (
+        {(toggleMenu || isDesktop) && headerOf === "home" && (
           <div className="login-signup-nav">
             <Link to="/login" className="link">
               Login
@@ -40,7 +39,7 @@ const Header: React.FC<HeaderProps> = ({ headerOf }) => {
           </div>
         )}
 
-        {!(header === "home") && isDesktop && (
+        {!(headerOf === "home") && isDesktop && (
           <div className="login-signup-nav">
             <Link to="/login" className="link">
               Semat
