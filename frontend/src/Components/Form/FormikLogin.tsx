@@ -43,7 +43,7 @@ export const FormikLogin: React.FC = () => {
 
   const handleLogin = (values: LoginValues) => {
     if (values.email === "admin@email.com" && values.password === "password") {
-      navigate("/");
+      navigate("/functional");
     }
   };
   return (
@@ -51,7 +51,6 @@ export const FormikLogin: React.FC = () => {
       <Formik<LoginValues>
         initialValues={initialValues}
         onSubmit={(values) => {
-
           handleLogin(values);
         }}
         validationSchema={validationSchema}

@@ -13,7 +13,6 @@ export const NewCardBody: React.FC = () => {
           pellentesque purus viverra dignissim. Vel quam varius.
         </div>
       </div>
-
       <div className="newCard-form">
         <CardForm />
       </div>

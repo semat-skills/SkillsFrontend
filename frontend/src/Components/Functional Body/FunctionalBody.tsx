@@ -19,9 +19,9 @@ export const FunctionalBody: React.FC = () => {
       <div className="functional-intro">
         <div className="section-title">Hikes Gallary</div>
         <div className="section-text">
-          SkillsReads is the world’s largest site for readers and book
-          recommendations. Our mission is to help people find and share books
-          they love. Goodreads launched in January 2007.
+          Hikers is the world’s largest site for hiking and trails
+          recommendations. Our mission is to help people find and share trails
+          they love. Hikers launched in March 2022.
         </div>
         <Button
           text="Add New Item"

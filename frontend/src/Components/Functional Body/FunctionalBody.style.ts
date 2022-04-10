@@ -50,7 +50,7 @@ export const Container = styled.div`
 
   .section-text {
     height: 144px;
-    width: 50%;
+    /* width: 50%; */
     left: 24px;
     top: 1522px;
 
@@ -64,6 +64,10 @@ export const Container = styled.div`
     margin-top: 30px;
     margin-bottom: 30px;
     align-items: center;
+
+    @media (min-width: 1024px) {
+      width: 50%;
+    }
   }
 
   .cards-results {
@@ -79,9 +83,12 @@ export const Container = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    justify-content: flex-start;
+    justify-content:center ;
     margin-bottom: 20px;
     margin-top: 40px;
+    @media (min-width: 1024px) {
+      justify-content: flex-start;
+    }
   }
 
   .filters {
