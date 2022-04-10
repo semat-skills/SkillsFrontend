@@ -5,8 +5,9 @@ import Card from "@material-ui/core/Card";
 import { Button } from "../../Button/Button";
 import { Container } from "./CardForm.style";
 import { Formik, FormikProps } from "formik";
-import * as Yup from "yup";
 import { Input } from "../../Input/Input";
+import { newCardValidationSchema } from "../../../util/util";
+import { CardValues } from "../../../Consts/types";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -17,17 +18,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
-
-type CardValues = {
-  cardName: string;
-  cardContent: string;
-  cardImg: string;
-};
-
-const validationSchema = Yup.object({
-  cardName: Yup.string().required("Required"),
-  cardImg: Yup.mixed().required("File is required"),
-});
 
 export const FormikCard: React.FC = () => {
   const navigate = useNavigate();
@@ -47,20 +37,19 @@ export const FormikCard: React.FC = () => {
         onSubmit={(values) => {
           handleNewCard(values);
         }}
-        validationSchema={validationSchema}
+        validationSchema={newCardValidationSchema}
         component={NewCardForm}
-      ></Formik>
+      />
     </Container>
   );
 };
 
-let NewCardForm: (props: FormikProps<CardValues>) => JSX.Element = ({
+const NewCardForm: (props: FormikProps<CardValues>) => JSX.Element = ({
   handleSubmit,
   values,
   handleChange,
   errors,
   touched,
-  isSubmitting,
 }) => {
   const classes = useStyles();
   return (
@@ -112,7 +101,7 @@ let NewCardForm: (props: FormikProps<CardValues>) => JSX.Element = ({
           </div>
 
           <div className="center">
-            <Button type="submit" text="Create New Card"></Button>
+            <Button type="submit" text="Create New Card" />
           </div>
         </Card>
       </form>

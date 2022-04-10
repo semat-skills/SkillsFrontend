@@ -1,30 +1,26 @@
 import React, { useState } from "react";
-import { Container, Wrapper } from "./HeaderStyle";
-import { useMediaQuery } from 'react-responsive'
+import { Container, Wrapper } from "./Header.style";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
-import { Navbar } from "../draft/NavBar/Navbar";
 
-type HeaderProps ={
-  headerOf: string,
-}
-const Header: React.FC<HeaderProps> = ({headerOf}) => {
+type HeaderProps = {
+  headerOf: string;
+};
+const Header: React.FC<HeaderProps> = ({ headerOf }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
-  const [header, setHeader] = useState(headerOf)
+  const [header, setHeader] = useState(headerOf);
   const isDesktop = useMediaQuery({
-    query: '(min-width: 1224px)'
-  })
+    query: "(min-width: 1224px)",
+  });
 
   const toggleNav = () => {
     setToggleMenu(!toggleMenu);
   };
 
- 
-
   return (
     <Wrapper>
       <Container>
         <div className="logo">HIKER</div>
-        {/* <Navbar /> */}
 
         {!isDesktop && (
           <div className="menu" onClick={toggleNav}>
@@ -32,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({headerOf}) => {
           </div>
         )}
 
-        {(toggleMenu || isDesktop) && (header==='home') && (
+        {(toggleMenu || isDesktop) && header === "home" && (
           <div className="login-signup-nav">
             <Link to="/login" className="link">
               Login
@@ -44,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({headerOf}) => {
           </div>
         )}
 
-        {!(header==='home') && isDesktop && (
+        {!(header === "home") && isDesktop && (
           <div className="login-signup-nav">
             <Link to="/login" className="link">
               Semat

@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "@material-ui/core/Card";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Formik, FormikProps } from "formik";
-import * as Yup from "yup";
 import { Container } from "./FormikForm.style";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
+import { signupValidationSchema } from "../../util/util";
+import { signupData } from "../../Consts/generalConsts";
+import { SignupValues } from "../../Consts/types";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,46 +20,11 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const signupData = {
-  title: "Sign Up to",
-  text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum gravida scelerisque nunc senectus ac. Aliquam auctor lacinia pellentesque purus viverra dignissim. Vel quam varius.",
-};
-
-type SignupValues = {
-  fullname: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  acceptTerms: boolean;
-};
-const validationSchema = Yup.object({
-  fullname: Yup.string().required("Required"),
-  email: Yup.string().email("Invalid email format").required("Required"),
-  password: Yup.string()
-    .required("Required")
-    .min(6, "Password must be 6 characters at minimum"),
-  confirmPassword: Yup.string()
-    .required("Required")
-    .min(6, "Password must be 6 characters at minimum")
-    .oneOf([Yup.ref("password"), null], "Passwords must Match"),
-  acceptTerms: Yup.boolean().oneOf(
-    [true],
-    "You must accept the terms and conditions"
-  ),
-});
-
 const FormikSignup: React.FC = () => {
   const navigate = useNavigate();
 
   const handleSignup = (values: SignupValues) => {
-
-    const newUser = {
-      fullname: values.fullname,
-      email: values.email,
-      password: values.password,
-    };
-      navigate("/login");
-
+    navigate("/login");
   };
 
   const initialValues = {
@@ -67,6 +34,8 @@ const FormikSignup: React.FC = () => {
     confirmPassword: "",
     acceptTerms: false,
   };
+
+ 
   return (
     <Container>
       <Formik<SignupValues>
@@ -74,23 +43,26 @@ const FormikSignup: React.FC = () => {
         onSubmit={(values) => {
           handleSignup(values);
         }}
-        validationSchema={validationSchema}
+        validationSchema={signupValidationSchema}
         component={SignupForm}
-      ></Formik>
+      />
     </Container>
   );
 };
 
-let SignupForm: (props: FormikProps<SignupValues>) => JSX.Element = ({
+const SignupForm: (props: FormikProps<SignupValues>) => JSX.Element = ({
   handleSubmit,
   values,
   handleChange,
   errors,
   touched,
-  isSubmitting,
 }) => {
   const classes = useStyles();
   const navigate = useNavigate();
+
+  const navToLogin = (event: React.MouseEvent<HTMLElement>) => {
+    navigate(`/login`);
+  };
   return (
     <form onSubmit={handleSubmit} className="needs-validation">
       <Card className={classes.card}>
@@ -165,7 +137,6 @@ let SignupForm: (props: FormikProps<SignupValues>) => JSX.Element = ({
                 inputId="acceptTerms"
                 inputName="acceptTerms"
                 inputType="checkbox"
-                // value={values.acceptTerms}
                 onChange={handleChange}
                 className={`form-check-input ${
                   errors.acceptTerms ? "is-invalid" : ""
@@ -175,9 +146,7 @@ let SignupForm: (props: FormikProps<SignupValues>) => JSX.Element = ({
                 <label className="terms ml-auto">
                   I confirm that I have read the{" "}
                   <strong>
-                    <a href="#" className="">
-                      Terms and Conditions
-                    </a>
+                    <a href="#">Terms and Conditions</a>
                   </strong>
                 </label>
                 {errors.acceptTerms && touched.acceptTerms && (
@@ -189,18 +158,13 @@ let SignupForm: (props: FormikProps<SignupValues>) => JSX.Element = ({
         </div>
 
         <div className="center">
-          <Button
-            type="submit"
-            text="Create New Account"
-          />
+          <Button type="submit" text="Create New Account" />
         </div>
         <div className="center">
           <label>
             I already have an account{" "}
             <label
-              onClick={(event: React.MouseEvent<HTMLElement>) => {
-                navigate(`/login`);
-              }}
+              onClick={navToLogin}
             >
               <strong className="click">Login</strong>
             </label>

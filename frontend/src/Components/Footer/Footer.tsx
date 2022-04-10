@@ -8,29 +8,21 @@ export const Footer: React.FC = () => {
         <FirstRow>
           <div className="subscribe">
             <div className="subscribeText">Subscribe to our Newsletter</div>
-            <Input placeholder="Email Address"></Input>
+            <Input placeholder="Email Address" />
             <button className="subscribe-btn">&gt;</button>
           </div>
           <div className="pages-links">
             <li>
-              <a className="page" href="">
-                About
-              </a>
+              <a className="page">About</a>
             </li>
             <li>
-              <a className="page" href="">
-                Trips
-              </a>
+              <a className="page">Trips</a>
             </li>
             <li>
-              <a className="page" href="">
-                Trails
-              </a>
+              <a className="page">Trails</a>
             </li>
             <li>
-              <a className="page" href="">
-                Hikers
-              </a>
+              <a className="page">Hikers</a>
             </li>
           </div>
         </FirstRow>
@@ -53,13 +45,13 @@ export const Footer: React.FC = () => {
           </div>
           <div className="social">
             <a href="#">
-              <i className="fa fa-facebook soc"></i>
+              <i className="fa fa-facebook soc" />
             </a>
             <a href="#">
-              <i className="fa fa-twitter soc"></i>
+              <i className="fa fa-twitter soc" />
             </a>
             <a href="#">
-              <i className="fa fa-instagram soc"></i>
+              <i className="fa fa-instagram soc" />
             </a>
           </div>
         </SecondRow>

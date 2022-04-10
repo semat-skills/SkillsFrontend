@@ -14,6 +14,9 @@ type CardInfo = {
 export const FunctionalBody: React.FC = () => {
   const navigate = useNavigate();
   const [CardsArr, setCardsArr] = useState<CardInfo[]>(cardData);
+  const navToNewCard = () => {
+    navigate("/newcard");
+  };
   return (
     <Container>
       <div className="functional-intro">
@@ -25,10 +28,8 @@ export const FunctionalBody: React.FC = () => {
         </div>
         <Button
           text="Add New Item"
-          onClick={() => {
-            navigate("/newcard");
-          }}
-        ></Button>
+          onClick={navToNewCard}
+        />
       </div>
 
       <div className="cards-results">
@@ -50,11 +51,7 @@ export const FunctionalBody: React.FC = () => {
         <div className="cards">
           {CardsArr.map((card) => {
             return (
-              <CardComp
-                img={card.img}
-                title={card.title}
-                text={card.text}
-              ></CardComp>
+              <CardComp img={card.img} title={card.title} text={card.text} />
             );
           })}
         </div>
