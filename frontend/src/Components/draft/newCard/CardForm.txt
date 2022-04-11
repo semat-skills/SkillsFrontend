@@ -1,0 +1,148 @@
+
+
+
+// export const CardForm = () => {
+//     const classes = useStyles();
+//     const [state, dispatch] = useReducer(reducer, initialState);
+//     const navigate = useNavigate();
+  
+//     useEffect(() => {
+//       if (state.cardName.trim() && state.cardContent.trim()) {
+//         dispatch({
+//           type: "setIsButtonDisabled",
+//           payload: false,
+//         });
+//       } else {
+//         dispatch({
+//           type: "setIsButtonDisabled",
+//           payload: true,
+//         });
+//       }
+//     }, [state.cardName, state.cardContent]);
+  
+//     const handleLogin = () => {
+//       if (
+//         state.cardName === "admin@email.com" &&
+//         state.cardContent === "password"
+//       ) {
+//         dispatch({
+//           type: "loginSuccess",
+//           payload: "Login Successfully",
+//         });
+//         navigate("/");
+//       } else {
+//         dispatch({
+//           type: "loginFailed",
+//           payload: "Incorrect email or password",
+//         });
+//       }
+//     };
+  
+//     const handleKeyPress = (event: React.KeyboardEvent) => {
+//       if (event.keyCode === 13 || event.which === 13) {
+//         state.isButtonDisabled || handleLogin();
+//       }
+//     };
+  
+//     const handleCardNameChange: React.ChangeEventHandler<HTMLInputElement> = (
+//       event
+//     ) => {
+//       dispatch({
+//         type: "setCardName",
+//         payload: event.target.value,
+//       });
+//     };
+  
+//     const handleCardContentChange: React.ChangeEventHandler<HTMLInputElement> = (
+//       event
+//     ) => {
+//       dispatch({
+//         type: "setCardContent",
+//         payload: event.target.value,
+//       });
+//     };
+  
+//     const validationSchema = Yup.object().shape({
+//       cardName: Yup.string().required("Card Name is required"),
+//       cardContent: Yup.string().required("Card Content is required"),
+//       cardImg: Yup.string(),
+//     });
+  
+//     const {
+//       register,
+//       handleSubmit,
+//       formState: { errors },
+//     } = useForm<State>({
+//       resolver: yupResolver(validationSchema),
+//     });
+  
+//     const onSubmit = (data: State) => {
+//       handleLogin();
+//       // console.log(JSON.stringify(data, null, 2));
+//     };
+//     return (
+//       <Container className="container">
+//         <form onSubmit={handleSubmit(onSubmit)}>
+//           <Card className={classes.card}>
+//             <div>
+//               <div className="inputDiv">
+//                 <label>Card Name</label>
+//                 <input
+//                   id="cardName"
+//                   type="text"
+//                   placeholder="Card Name"
+//                   {...register("cardName")}
+//                   onChange={handleCardNameChange}
+//                   onKeyPress={handleKeyPress}
+//                   className={`input-text form-control ${
+//                     errors.cardName ? "is-invalid" : ""
+//                   }`}
+//                 />
+//                 <div className="invalid-feedback">{errors.cardName?.message}</div>
+//               </div>
+//               <div className="inputDiv">
+//                 <label>Card Content</label>
+//                 <textarea
+//                   id="cardContent"
+//                   placeholder="Card Content"
+//                   {...register("cardContent")}
+//                   // onChange={handleCardContentChange}
+//                   onKeyPress={handleKeyPress}
+//                   className={`input-textarea input-text form-control ${
+//                     errors.cardContent ? "is-invalid" : ""
+//                   }`}
+//                 />
+//                 <div className="invalid-feedback">
+//                   {errors.cardContent?.message}
+//                 </div>
+//               </div>
+//               <div className="inputDiv">
+//                 <input
+//                   id="cardImg"
+//                   type="file"
+//                   placeholder="Upload Card Image"
+//                   {...register("cardImg")}
+//                   // onChange={handlePasswordChange}
+//                   onKeyPress={handleKeyPress}
+//                   className={`input-file input-text form-control ${
+//                     errors.cardImg ? "is-invalid" : ""
+//                   }`}
+//                 />
+//                 <div className="invalid-feedback">{errors.cardImg?.message}</div>
+//               </div>
+//             </div>
+//             <div className="center">
+//               <Button
+//                 type="submit"
+//                 disabled={state.isButtonDisabled}
+//                 text="Create New Card"
+//               ></Button>
+//             </div>
+//           </Card>
+//         </form>
+//       </Container>
+//     );
+//   };
+  
+//   export default CardForm;
+  

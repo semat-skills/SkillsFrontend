@@ -1,0 +1,65 @@
+ {/* {screenWidth <= 1024 && <Navbar />} */}
+
+
+    // validate={(values) => {
+        //   console.log("Form Data", values);
+
+        //   let errors = {};
+        //   if (values) {
+        //     if (!values.email) {
+        //       errors.email = "Required";
+        //     }
+
+        //     if (!values.password) {
+        //         errors.email = "Required";
+        //       }
+        //   }
+
+        //   return errors;
+        // }}
+
+
+
+
+         <div className="inputDiv">
+            <label>Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Email"
+              value={values.email}
+              onChange={handleChange}
+              className={`input-text form-control ${
+                errors.email ? "is-invalid" : ""
+              }`}
+            />
+            {errors.email && touched.email && (
+              <div className="text-danger">{errors.email}</div>
+            )}
+          </div>
+
+
+
+
+              <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">   -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <link href='https://css.gg/menu.css' rel='stylesheet'>
+
+
+
+
+      const handleSignup = (values: SignupValues) => {
+
+    // const newUser = {
+    //   fullname: values.fullname,
+    //   email: values.email,
+    //   password: values.password,
+    // };
+      navigate("/login");
+
+  };
