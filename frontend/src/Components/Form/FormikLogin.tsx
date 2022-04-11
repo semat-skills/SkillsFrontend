@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "@material-ui/core/Card";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Formik, FormikProps } from "formik";
-import * as Yup from "yup";
 import { Container } from "./FormikForm.style";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
+import { loginValidationSchema } from "../../util/util";
+import { LoginValues } from "../../Consts/types";
+import { loginData } from "../../Consts/generalConsts";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -17,22 +19,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
-
-const loginData = {
-  title: "Login to",
-  text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum gravida scelerisque nunc senectus ac. Aliquam auctor lacinia pellentesque purus viverra dignissim. Vel quam varius.",
-};
-
-type LoginValues = {
-  email: string;
-  password: string;
-};
-const validationSchema = Yup.object({
-  email: Yup.string().email("Invalid email format").required("Required"),
-  password: Yup.string()
-    .required("Required")
-    .min(6, "Password must be 6 characters at minimum"),
-});
 
 export const FormikLogin: React.FC = () => {
   const navigate = useNavigate();
@@ -53,14 +39,14 @@ export const FormikLogin: React.FC = () => {
         onSubmit={(values) => {
           handleLogin(values);
         }}
-        validationSchema={validationSchema}
+        validationSchema={loginValidationSchema}
         component={LoginForm}
-      ></Formik>
+      />
     </Container>
   );
 };
 
-let LoginForm: (props: FormikProps<LoginValues>) => JSX.Element = ({
+const LoginForm: (props: FormikProps<LoginValues>) => JSX.Element = ({
   handleSubmit,
   values,
   handleChange,
@@ -70,6 +56,9 @@ let LoginForm: (props: FormikProps<LoginValues>) => JSX.Element = ({
 }) => {
   const classes = useStyles();
   const navigate = useNavigate();
+  const navToSignup = (event: React.MouseEvent<HTMLElement>) => {
+    navigate(`/`);
+  }
   return (
     <form onSubmit={handleSubmit} className="needs-validation">
       <Card className={classes.card}>
@@ -109,9 +98,7 @@ let LoginForm: (props: FormikProps<LoginValues>) => JSX.Element = ({
           />
           <div>
             <label
-              onClick={(event: React.MouseEvent<HTMLElement>) => {
-                navigate(`/`);
-              }}
+              onClick={navToSignup}
             >
               <strong className="click">Forgot Password</strong>
             </label>

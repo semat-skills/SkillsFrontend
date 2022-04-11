@@ -39,7 +39,7 @@ export const Inspiration: React.FC = () => {
                 img={card.img}
                 title={card.title}
                 text={card.text}
-              ></CardComp>
+              />
             );
           })}
         </div>
