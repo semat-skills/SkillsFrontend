@@ -4,11 +4,14 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Formik, FormikProps } from "formik";
 import { Container } from "./FormikForm.style";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
 import { signupValidationSchema } from "../../util/util";
 import { signupData } from "../../Consts/generalConsts";
 import { SignupValues } from "../../Consts/types";
+import { addUser } from "../../actions/actions";
+import { State } from "../../reducers/rootReducer";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,22 +23,34 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+const initialValues = {
+  fullname: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+  acceptTerms: false,
+};
+
 const FormikSignup: React.FC = () => {
   const navigate = useNavigate();
 
+  const dispatch = useDispatch();
+
+  const users = useSelector((state: State) => state.users);
+
   const handleSignup = (values: SignupValues) => {
-    navigate("/login");
+    if (!users.find((user) => user.email === values.email)) {
+      const newUser = {
+        fullname: values.fullname,
+        email: values.email,
+        password: values.password,
+      };
+      dispatch(addUser(newUser));
+      navigate("/login");
+    } else {
+      navigate("/");
+    }
   };
-
-  const initialValues = {
-    fullname: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    acceptTerms: false,
-  };
-
- 
   return (
     <Container>
       <Formik<SignupValues>
@@ -163,9 +178,7 @@ const SignupForm: (props: FormikProps<SignupValues>) => JSX.Element = ({
         <div className="center">
           <label>
             I already have an account{" "}
-            <label
-              onClick={navToLogin}
-            >
+            <label onClick={navToLogin}>
               <strong className="click">Login</strong>
             </label>
           </label>

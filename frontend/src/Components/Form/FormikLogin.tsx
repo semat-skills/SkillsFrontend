@@ -9,6 +9,8 @@ import { Input } from "../Input/Input";
 import { loginValidationSchema } from "../../util/util";
 import { LoginValues } from "../../Consts/types";
 import { loginData } from "../../Consts/generalConsts";
+import { State } from "../../reducers/rootReducer";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,15 +22,26 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+const initialValues = {
+  email: "",
+  password: "",
+};
+ 
 export const FormikLogin: React.FC = () => {
   const navigate = useNavigate();
-  const initialValues = {
-    email: "",
-    password: "",
-  };
+  const users = useSelector((state: State) => state.users);
+
 
   const handleLogin = (values: LoginValues) => {
-    if (values.email === "admin@email.com" && values.password === "password") {
+    if (
+      users.find(
+        (user) =>
+          user.email === values.email && user.password === values.password
+      )
+    ) {
+      navigate("/functional");
+    }
+    else {
       navigate("/");
     }
   };
@@ -58,7 +71,7 @@ const LoginForm: (props: FormikProps<LoginValues>) => JSX.Element = ({
   const navigate = useNavigate();
   const navToSignup = (event: React.MouseEvent<HTMLElement>) => {
     navigate(`/`);
-  }
+  };
   return (
     <form onSubmit={handleSubmit} className="needs-validation">
       <Card className={classes.card}>
@@ -97,9 +110,7 @@ const LoginForm: (props: FormikProps<LoginValues>) => JSX.Element = ({
             touched={touched.password}
           />
           <div>
-            <label
-              onClick={navToSignup}
-            >
+            <label onClick={navToSignup}>
               <strong className="click">Forgot Password</strong>
             </label>
           </div>

@@ -18,14 +18,14 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
+const initialValues = {
+  img: "",
+  title: "",
+  text: "",
+};
 
 export const FormikCard: React.FC = () => {
   const navigate = useNavigate();
-  const initialValues = {
-    cardName: "",
-    cardContent: "",
-    cardImg: "",
-  };
 
   const handleNewCard = (values: CardValues) => {
     navigate("/functional");
@@ -63,13 +63,13 @@ const NewCardForm: (props: FormikProps<CardValues>) => JSX.Element = ({
               inputName="cardName"
               inputType="text"
               placeholder="Card Name"
-              value={values.cardName}
+              value={values.title}
               onChange={handleChange}
               className={`input-text form-control ${
-                errors.cardName ? "is-invalid" : ""
+                errors.title ? "is-invalid" : ""
               }`}
-              inputErrors={errors.cardName}
-              touched={touched.cardName}
+              inputErrors={errors.title}
+              touched={touched.title}
             />
             <div className="inputDiv">
               <label>Card Content</label>
@@ -78,11 +78,11 @@ const NewCardForm: (props: FormikProps<CardValues>) => JSX.Element = ({
                 name="cardContent"
                 placeholder="Card Content"
                 className={`input-textarea input-text form-control ${
-                  errors.cardContent ? "is-invalid" : ""
+                  errors.text ? "is-invalid" : ""
                 }`}
               />
-              {errors.cardContent && touched.cardContent && (
-                <div className="text-danger">{errors.cardContent}</div>
+              {errors.text && touched.text && (
+                <div className="text-danger">{errors.text}</div>
               )}
             </div>
             <Input
@@ -90,13 +90,13 @@ const NewCardForm: (props: FormikProps<CardValues>) => JSX.Element = ({
               inputName="cardImg"
               inputType="file"
               placeholder="PasscardImgword"
-              value={values.cardImg}
+              value={values.img}
               onChange={handleChange}
               className={`input-file input-text form-control ${
-                errors.cardImg ? "is-invalid" : ""
+                errors.img ? "is-invalid" : ""
               }`}
-              inputErrors={errors.cardImg}
-              touched={touched.cardImg}
+              inputErrors={errors.img}
+              touched={touched.img}
             />
           </div>
 

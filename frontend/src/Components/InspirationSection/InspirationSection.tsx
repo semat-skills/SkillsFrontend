@@ -1,19 +1,14 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { CardComp } from "../Card/Card";
 import { Container } from "./InspirationSectionStyle";
-import cardData from "../../Consts/CardsData";
-
-type CardInfo = {
-  img: string;
-  title: string;
-  text: string;
-};
+import { State } from "../../reducers/rootReducer";
+import { useSelector } from "react-redux";
 
 export const Inspiration: React.FC = () => {
   const InsparationSection = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const [CardsArr, setCardsArr] = useState<CardInfo[]>(cardData);
+  const CardsArr = useSelector((state: State) => state.cards);
 
   const handlePrev = () => {
     if (containerRef) {
@@ -35,11 +30,7 @@ export const Inspiration: React.FC = () => {
         <div className="cards" ref={containerRef}>
           {CardsArr.map((card) => {
             return (
-              <CardComp
-                img={card.img}
-                title={card.title}
-                text={card.text}
-              />
+              <CardComp img={card.img} title={card.title} text={card.text} />
             );
           })}
         </div>

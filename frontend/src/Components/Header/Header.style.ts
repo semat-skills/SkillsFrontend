@@ -50,7 +50,8 @@ export const Container = styled.header`
     min-height: 60px;
     min-width: 60px;
     border-radius: 50%;
-    background-image: ${profileImg};
+    background-color: beige;
+    /* background-image: ${profileImg}; */
     margin-left: 10px;
     border: 1px solid black;
   }

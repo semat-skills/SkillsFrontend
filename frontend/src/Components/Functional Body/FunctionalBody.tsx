@@ -1,19 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Container } from "./FunctionalBody.style";
 import { Button } from "../Button/Button";
 import { CardComp } from "../Card/Card";
-import cardData from "../../Consts/CardsData";
-
-type CardInfo = {
-  img: string;
-  title: string;
-  text: string;
-};
+import { State } from "../../reducers/rootReducer";
+import { useSelector } from "react-redux";
 
 export const FunctionalBody: React.FC = () => {
   const navigate = useNavigate();
-  const [CardsArr, setCardsArr] = useState<CardInfo[]>(cardData);
+
+  const CardsArr = useSelector((state: State) => state.cards);
+
   const navToNewCard = () => {
     navigate("/newcard");
   };
@@ -22,14 +19,11 @@ export const FunctionalBody: React.FC = () => {
       <div className="functional-intro">
         <div className="section-title">Hikes Gallary</div>
         <div className="section-text">
-          SkillsReads is the world’s largest site for readers and book
-          recommendations. Our mission is to help people find and share books
-          they love. Goodreads launched in January 2007.
+          Hikers is the world’s largest site for hiking and trails
+          recommendations. Our mission is to help people find and share trails
+          they love. Hikers launched in March 2022.
         </div>
-        <Button
-          text="Add New Item"
-          onClick={navToNewCard}
-        />
+        <Button text="Add New Item" onClick={navToNewCard} />
       </div>
 
       <div className="cards-results">
