@@ -54,7 +54,7 @@ const NewCardForm: (props: FormikProps<CardValues>) => JSX.Element = ({
   const classes = useStyles();
   return (
     <Container className="container">
-      <form onSubmit={handleSubmit} className="needs-validation">
+      <form onSubmit={handleSubmit} className="needs-validation" data-testid="form">
         <Card className={classes.card}>
           <div>
             <Input

@@ -28,7 +28,7 @@ export const Input: React.FC<InputProps> = ({
 }) => {
   return (
     <Container>
-     {label && <label>{label}</label>} 
+      {label && <label>{label}</label>}
       <input
         id={inputId}
         name={inputName}

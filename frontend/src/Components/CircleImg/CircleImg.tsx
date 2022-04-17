@@ -6,5 +6,5 @@ interface CircleProps {
 }
 
 export const CircleImg: React.FC<CircleProps> = ({ imgUrl }) => {
-  return <Circle />;
+  return <Circle data-testid="circleImg" />;
 };

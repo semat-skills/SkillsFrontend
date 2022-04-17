@@ -29,15 +29,6 @@ export const Container = styled.div`
     padding-top: 10px;
   }
 
-  /* .input-text {
-    background: #ffffff;
-    font-size: medium;
-    padding: 12px 16px;
-    border: 1px solid #d6d6d6;
-    box-sizing: border-box;
-    border-radius: 4px;
-    font-weight: normal;
-  } */
   .input-textarea {
     min-height: 220px;
   }

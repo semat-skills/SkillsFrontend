@@ -15,7 +15,7 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
 }) => {
   return (
-    <StyledButton type={type} disabled={disabled} onClick={onClick}>
+    <StyledButton type={type} disabled={disabled} onClick={onClick} title='button'>
       {text}
     </StyledButton>
   );

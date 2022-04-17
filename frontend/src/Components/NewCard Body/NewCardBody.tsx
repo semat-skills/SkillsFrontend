@@ -4,7 +4,7 @@ import CardForm from "./NewCardForm/CardForm";
 
 export const NewCardBody: React.FC = () => {
   return (
-    <Container>
+    <Container data-testid='cardbody'>
       <div className="newcard-intro">
         <div className="section-title">Add New Card</div>
         <div className="section-text">
@@ -13,8 +13,8 @@ export const NewCardBody: React.FC = () => {
           pellentesque purus viverra dignissim. Vel quam varius.
         </div>
       </div>
-      <div className="newCard-form">
-        <CardForm />
+      <div className="newCard-form" data-testid="cardForm">
+        <CardForm  />
       </div>
     </Container>
   );

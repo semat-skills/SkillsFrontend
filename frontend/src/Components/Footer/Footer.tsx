@@ -13,16 +13,16 @@ export const Footer: React.FC = () => {
           </div>
           <div className="pages-links">
             <li>
-              <a className="page">About</a>
+              <a className="page" href='#'>About</a>
             </li>
             <li>
-              <a className="page">Trips</a>
+              <a className="page" href='#'>Trips</a>
             </li>
             <li>
-              <a className="page">Trails</a>
+              <a className="page" href='#'>Trails</a>
             </li>
             <li>
-              <a className="page">Hikers</a>
+              <a className="page" href='#'>Hikers</a>
             </li>
           </div>
         </FirstRow>

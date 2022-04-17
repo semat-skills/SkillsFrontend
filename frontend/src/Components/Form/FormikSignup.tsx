@@ -79,11 +79,11 @@ const SignupForm: (props: FormikProps<SignupValues>) => JSX.Element = ({
     navigate(`/login`);
   };
   return (
-    <form onSubmit={handleSubmit} className="needs-validation">
+    <form onSubmit={handleSubmit} className="needs-validation" data-testid="form">
       <Card className={classes.card}>
         <h2>
           {signupData.title}&nbsp;
-          <strong>Hicker</strong>
+          <strong>Hiker</strong>
         </h2>
         <p>{signupData.text}</p>
         <div>

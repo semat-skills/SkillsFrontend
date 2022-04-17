@@ -8,13 +8,13 @@ export const OurFeatures: React.FC = () => {
       <div className="sectionDescrption">
         <div className="section-title">Our Features</div>
         <div className="section-text">
-          SkillsReads is the world’s largest site for readers and book
-          recommendations. Our mission is to help people find and share books
-          they love. Goodreads launched in January 2007.
+        Hikers is the world’s largest site for hiking and trails
+          recommendations. Our mission is to help people find and share trails
+          they love. Hikers launched in March 2022.
         </div>
       </div>
-      <div className="stories">
-        <Stories />
+      <div className="stories" data-testid="stories">
+        <Stories  />
       </div>
     </Container>
   );
