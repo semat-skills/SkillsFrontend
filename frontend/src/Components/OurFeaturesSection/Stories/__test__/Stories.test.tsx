@@ -15,7 +15,7 @@ const MockStories = () => {
 };
 
 describe("Stories", () => {
-  it("should check number of stories", async () => {
+  it("should check number of stories", () => {
     render(<MockStories />);
     const storyElement = screen.getAllByTestId("story");
     expect(storyElement.length).toBe(4);

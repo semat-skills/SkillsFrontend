@@ -15,13 +15,13 @@ const MockSignup = () => {
 };
 
 describe("Login", () => {
-  it("should render the form", async () => {
+  it("should render the form", () => {
     render(<MockSignup />);
     const loginElement = screen.getByTestId("signupForm");
     expect(loginElement).toBeInTheDocument();
   });
 
-  it("should render the imgs", async () => {
+  it("should render the imgs", () => {
     render(<MockSignup />);
     const loginElement = screen.getByTestId("patterns");
     expect(loginElement).toBeInTheDocument();

@@ -15,25 +15,25 @@ const MockCardForm = () => {
 };
 
 describe("CardForm", () => {
-  it("should render Card Content", async () => {
+  it("should render Card Content", () => {
     render(<MockCardForm />);
     const formElement = screen.getByText("Card Content");
     expect(formElement).toBeInTheDocument();
   });
 
-  it("should render Card Name", async () => {
+  it("should render Card Name", () => {
     render(<MockCardForm />);
     const formElement = screen.getByText("Card Name");
     expect(formElement).toBeInTheDocument();
   });
 
-  it("should check if the p element exists", async () => {
+  it("should check if the p element exists", () => {
     render(<MockCardForm />);
     const formElement = screen.getByTestId("form");
     expect(formElement).toContainHTML("p");
   });
 
-  it("should check if only one button exists", async () => {
+  it("should check if only one button exists", () => {
     render(<MockCardForm />);
     const formElement = screen.getAllByRole("button");
     expect(formElement.length).toBe(1);

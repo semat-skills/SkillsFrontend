@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Input } from "../Input";
 
 describe("Input", () => {
-  it("should be able to type into input - rerender", async () => {
+  it("should be able to type into input - rerender", () => {
     const { rerender } = render(
       <Input
         label="Email"
@@ -11,7 +11,7 @@ describe("Input", () => {
         inputType="email"
         placeholder="Email"
         onChange={(e) => e.target.value}
-        className={`input-text form-control ${false ? "is-invalid" : ""}`}
+        className={`input-text form-control`}
         inputErrors={"false"}
       />
     );
@@ -24,7 +24,7 @@ describe("Input", () => {
         inputType="email"
         placeholder="Email"
         onChange={(e) => e.target.value}
-        className={`input-text form-control ${false ? "is-invalid" : ""}`}
+        className={`input-text form-control`}
         inputErrors={"false"}
       />
     );

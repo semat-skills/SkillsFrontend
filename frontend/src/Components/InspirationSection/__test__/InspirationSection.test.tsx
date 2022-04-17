@@ -15,13 +15,13 @@ const MockInspiration = () => {
 };
 
 describe("InspirationSection", () => {
-  it("should render section title", async () => {
+  it("should render section title", () => {
     render(<MockInspiration />);
     const insprElement = screen.getByText("Hikes of The Week");
     expect(insprElement).toBeInTheDocument();
   });
 
-  it("should check scroller buttons", async () => {
+  it("should check scroller buttons", () => {
     render(<MockInspiration />);
     const insprElement = screen.getByTestId("scrollButton");
     expect(insprElement).toHaveStyle("border-radius: 50%;");

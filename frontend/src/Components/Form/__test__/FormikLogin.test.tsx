@@ -15,25 +15,25 @@ const MockForm = () => {
 };
 
 describe("Form", () => {
-  it("should render Hiker in h2", async () => {
+  it("should render Hiker in h2", () => {
     render(<MockForm />);
     const formElement = screen.getByRole("heading");
     expect(formElement).toHaveTextContent("Hiker");
   });
 
-  it("should show hiker in strong", async () => {
+  it("should show hiker in strong", () => {
     render(<MockForm />);
     const formElement = screen.getByRole("heading");
     expect(formElement).toContainHTML("strong");
   });
 
-  it("should check if the p element exists", async () => {
+  it("should check if the p element exists", () => {
     render(<MockForm />);
     const formElement = screen.getByTestId("form");
     expect(formElement).toContainHTML("p");
   });
 
-  it("should check if only one button exists", async () => {
+  it("should check if only one button exists", () => {
     render(<MockForm />);
     const formElement = screen.getAllByRole("button");
     expect(formElement.length).toBe(1);

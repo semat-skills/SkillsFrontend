@@ -15,13 +15,13 @@ const MockFeatures = () => {
 };
 
 describe("InspirationSection", () => {
-  it("should render section title", async () => {
+  it("should render section title", () => {
     render(<MockFeatures />);
     const featureElement = screen.getByText("Our Features");
     expect(featureElement).toBeInTheDocument();
   });
 
-  it("should render stories", async () => {
+  it("should render stories", () => {
     render(<MockFeatures />);
     const featureElement = screen.getByTestId("stories");
     expect(featureElement).toBeInTheDocument();

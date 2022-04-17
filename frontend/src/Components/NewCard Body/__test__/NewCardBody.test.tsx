@@ -11,19 +11,19 @@ const Mochcard = () => {
 };
 
 describe("CardBody", () => {
-  it("should render the component", async () => {
+  it("should render the component", () => {
     render(<Mochcard />);
     const cardElements = screen.getByTestId("cardbody");
     expect(cardElements).not.toBeFalsy();
   });
 
-  it("should render same text", async () => {
+  it("should render same text", () => {
     render(<Mochcard />);
     const cardElements = screen.getByText("Add New Card");
     expect(cardElements).toBeInTheDocument();
   });
 
-  it("should render form", async () => {
+  it("should render form", () => {
     render(<Mochcard />);
     const cardElements = screen.getByTestId("cardForm");
     expect(cardElements).toBeInTheDocument();

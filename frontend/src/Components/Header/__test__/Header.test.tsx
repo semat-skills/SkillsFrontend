@@ -15,19 +15,22 @@ const MochHeader: React.FC<HeaderProps> = ({ headerOf }) => {
 };
 
 describe("Header", () => {
-  it("should render text of logo", async () => {
+  it("should render text of logo",
+   () => {
     render(<MochHeader headerOf="Home" />);
     const headingElements = screen.getByText(/hiker/i);
     expect(headingElements).toBeInTheDocument();
   });
 
-  it("should check if text return true", async () => {
+  it("should check if text return true",
+   () => {
     render(<MochHeader headerOf="Home" />);
     const headingElements = screen.getByText(/hiker/i);
     expect(headingElements).toBeTruthy();
   });
 
-  it("should check if logo text is visible", async () => {
+  it("should check if logo text is visible",
+   () => {
     render(<MochHeader headerOf="Home" />);
     const headingElements = screen.getByText(/Hiker/i);
     expect(headingElements).toBeVisible();
