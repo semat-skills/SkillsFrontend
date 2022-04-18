@@ -152,6 +152,7 @@ export const SecondRow = styled.div`
   .copy {
     margin-top: 20px;
     margin-bottom: 20px;
+    color: black;
     @media (min-width: 1024px) {
       margin-top: 0px;
       margin-bottom: 0px;

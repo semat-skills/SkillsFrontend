@@ -26,7 +26,7 @@ export const Inspiration: React.FC = () => {
   return (
     <Container ref={InsparationSection}>
       <div className="scroller">
-        <div className="title">Hiking of The Week</div>
+        <div className="title">Hikes of The Week</div>
         <div className="cards" ref={containerRef}>
           {CardsArr.map((card) => {
             return (
@@ -37,7 +37,7 @@ export const Inspiration: React.FC = () => {
       </div>
       <div className="scroller-container">
         <div className="btns-scroller">
-          <div className="scroller-btn prev" onClick={handlePrev}>
+          <div className="scroller-btn prev" onClick={handlePrev} data-testid="scrollButton">
             &lt;
           </div>
           <div className="scroller-btn next" onClick={handleNext}>
