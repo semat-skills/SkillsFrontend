@@ -2,49 +2,51 @@ import { Request, Response, NextFunction } from "express";
 import { signup } from "../controllers/user";
 import request from "supertest";
 import router from "./user";
+import { jest } from '@jest/globals'
+//import makeApp from './app.js'
 
 describe("POST /users/signup", () => {
   it.skip("test /user", async () => {
     const response = await request(router).get("/");
-    expect(response.body).toBeDefined();
+    expect(response.body).toMatch("respond with a resource");
   });
 });
 
-describe("Get signup", () => {
-  let mockRequest: Partial<Request>;
-  let mockResponse: Partial<Response>;
-  let next: Partial<NextFunction>;
-  let responseObject = {};
+// describe("Get signup", () => {
+//   let mockRequest: Partial<Request>;
+//   let mockResponse: Partial<Response>;
+//   let next: Partial<NextFunction>;
+//   let responseObject = {};
 
-  beforeEach(() => {
-    mockRequest = {
-      body: {
-        email: "testing5@email.com",
-        fullname: "testing Email",
-        password: "testingpassword",
-      },
-    };
-    mockResponse = {
-      statusCode: 0,
-      send: jest.fn().mockImplementation((result) => {
-        responseObject = result;
-      }),
-    };
-  });
+//   beforeEach(() => {
+//     mockRequest = {
+//       body: {
+//         email: "testing5@email.com",
+//         fullname: "testing Email",
+//         password: "testingpassword",
+//       },
+//     };
+//     mockResponse = {
+//       statusCode: 0,
+//       send: jest.fn().mockImplementation((result) => {
+//         responseObject = result;
+//       }),
+//     };
+//   });
 
-  it.skip("200 - signup", async () => {
-    const expectedStatusCode = 200;
-    const expectedReponse = {
-      status: "Resgistration Successful!",
-    };
+//   it.skip("200 - signup", async () => {
+//     const expectedStatusCode = 200;
+//     const expectedReponse = {
+//       status: "Resgistration Successful!",
+//     };
 
-    await signup(
-      mockRequest as Request,
-      mockResponse as Response,
-      next as NextFunction
-    );
+//     await signup(
+//       mockRequest as Request,
+//       mockResponse as Response,
+//       next as NextFunction
+//     );
 
-    expect(mockResponse.statusCode).toBe(expectedStatusCode);
-    expect(responseObject).toEqual(expectedReponse);
-  });
-});
+//     expect(mockResponse.statusCode).toBe(expectedStatusCode);
+//     expect(responseObject).toEqual(expectedReponse);
+//   });
+// });
