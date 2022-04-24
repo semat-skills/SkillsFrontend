@@ -102,3 +102,20 @@ export const removeUser = async (
     })
     .catch((err) => next(err));
 };
+
+export const logout = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  res.send("logout");
+  // const email = req.params.userEmail;
+  // await User.destroy({ where: { email: req.params.userEmail } })
+  //   .then((user) => {
+  //     res.statusCode = 200;
+  //     res.setHeader("Content-Type", "application/json");
+  //     res.send("User has been deleted!");
+  //   })
+  //   .catch((err) => next(err));
+};
+
