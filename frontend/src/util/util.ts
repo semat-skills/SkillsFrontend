@@ -28,3 +28,12 @@ export const signupValidationSchema = Yup.object({
     cardName: Yup.string().required("Required"),
     cardImg: Yup.mixed().required("File is required"),
   });
+
+  export const contactValidationSchema = Yup.object({
+    fullname: Yup.string().required("Required"),
+    email: Yup.string().email("Invalid email format").required("Required"),
+    title:  Yup.string().required("Required"),
+    text:  Yup.string().required("Required"),
+    img:  Yup.string().required("Required"),
+   
+  });

@@ -23,4 +23,10 @@ export type NewUser = {
   password: string;
 };
 
-
+export type ContactValues = {
+  fullname: string;
+  email: string;
+  title: string;
+  text: string;
+  img: string;
+};
