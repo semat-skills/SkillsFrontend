@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container } from "./FunctionalBody.style";
 import { Button } from "../Button/Button";
@@ -13,6 +13,49 @@ export const FunctionalBody: React.FC = () => {
 
   const navToNewCard = () => {
     navigate("/newcard");
+  };
+
+  // useEffect(() => {
+  //   fetch('http://localhost:3000/hikes/allhikes')
+  //     .then(res => {
+  //       // if (res.ok) {
+  //       //   console.log('SUCCESS');
+  //       // } else {
+  //       //   console.log('not Successful');
+  //       // }
+  //       console.log("in")
+  //     //  return res.json();
+  //     })
+  //     .then(data => {
+  //       console.log(data);
+  //     })
+  //     .catch(error => console.log('ERROR!'));
+  // }, []);
+
+  const handleFetch = async() => {
+    return await fetch(
+      "http://localhost:3000/hikes/allhikes"
+      // , {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     Accept: "application/json",
+      //   },
+      // }
+    )
+      .then((response) => {
+        console.log("ress");
+        let resp = JSON.stringify(response);
+        const re = JSON.parse(resp);
+        console.log(re)
+        return re;
+
+        // return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+
+      .catch((error) => console.log("ERROR!"));
   };
   return (
     <Container>
@@ -41,6 +84,7 @@ export const FunctionalBody: React.FC = () => {
             </div>
           </div>
         </div>
+        <button onClick={handleFetch}>Fetch</button>
 
         <div className="cards">
           {CardsArr.map((card) => {

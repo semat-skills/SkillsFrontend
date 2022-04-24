@@ -13,6 +13,7 @@ import User from "./models/user.model";
 import Hike from "./models/hike.model";
 import usersRouter from "./routes/user";
 import hikesRouter from "./routes/hike";
+import cors from 'cors';
 
 
 const Usermodel = User;
@@ -24,6 +25,7 @@ const app: Application = express();
 
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
   res.status(200);
