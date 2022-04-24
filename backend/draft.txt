@@ -1,0 +1,25 @@
+
+//   sequlize
+//   .authenticate()
+//   .then(async () => {
+//     console.log("Connection has been established successfully.");
+
+//     try {
+//       await sequlize.sync({ force: true });
+//     } catch (error) {
+//       console.error("Unable to connect to the database:", error);
+//     }
+//   })
+//   .catch((e: any) => {
+//     console.log(e.message);
+//   });
+
+
+
+// import {Sequelize} from "sequelize-typescript"
+
+// export const sequlize = new Sequelize('hiker', 'postgres', 'postgres', {
+//    host: 'localhost',
+//    dialect: 'postgres',
+//    models: [__dirname + '/models'] 
+// });
