@@ -6,28 +6,27 @@ export const signup = async (
   res: Response,
   next: NextFunction
 ) => {
-  await User.findOne({ where: { email: req.body.email } })
-    .then((user) => {
-      if (user) {
-        res.status(403).send({
-          message: "User " + req.body.email + " already exists!",
-        });
-      } else {
-        return User.create({
-          email: req.body.email,
-          fullname: req.body.fullname,
-          password: req.body.password,
-        });
-      }
-    })
-    .then(
-      (user) => {
+  try {
+    const user = await User.findOne({ where: { email: req.body.email } });
+    if (user) {
+      res.status(403).send({
+        message: "User " + req.body.email + " already exists!",
+      });
+    } else {
+      const newUser = await User.create({
+        email: req.body.email,
+        fullname: req.body.fullname,
+        password: req.body.password,
+      });
+
+      if (newUser) {
         res.status(200);
         res.json({ status: "Resgistration Successful!" });
-      },
-      (err) => next(err)
-    )
-    .catch((err) => next(err));
+      }
+    }
+  } catch (err) {
+    next(err);
+  }
 };
 
 export const login = async (
@@ -35,30 +34,28 @@ export const login = async (
   res: Response,
   next: NextFunction
 ) => {
-  await User.findOne({ where: { email: req.body.email } })
-    .then((user) => {
-      if (user === null) {
-        res.status(403).send({
-          message: "User " + req.body.email + " does not exists!",
-        });
-      } else if (user) {
-        const email = user.getDataValue("email");
-        const password = user.getDataValue("password");
+  try {
+    const user = await User.findOne({ where: { email: req.body.email } });
+    if (user === null) {
+      res.status(403).send({
+        message: "User " + req.body.email + " does not exists!",
+      });
+    } else if (user) {
+      const email = user.getDataValue("email");
+      const password = user.getDataValue("password");
 
-        if (password !== req.body.password) {
-          res.status(403);
-          res.send("Your password is incorrect!");
-        } else if (email === req.body.email && password == req.body.password) {
-          res.status(200);
-
-          res.end("You are authenticated!");
-        }
-      } else {
+      if (password !== req.body.password) {
+        res.status(403);
+        res.send("Your password is incorrect!");
+      } else if (email === req.body.email && password == req.body.password) {
         res.status(200);
-        res.send("ok");
+
+        res.end("You are authenticated!");
       }
-    })
-    .catch((err) => next(err));
+    }
+  } catch (err) {
+    next(err);
+  }
 };
 
 export const updatePassword = async (
@@ -66,26 +63,27 @@ export const updatePassword = async (
   res: Response,
   next: NextFunction
 ) => {
-  const email = req.params.userEmail;
-  await User.update(
-    { password: req.body.password },
-    { where: { email: req.params.userEmail } }
-  )
+  try {
+    const email = req.params.userEmail;
+    const user = await User.update(
+      { password: req.body.password },
+      { where: { email: req.params.userEmail } }
+    );
 
-    .then((user) => {
+    if (user) {
       const userValue = user.at(0);
       if (userValue === 0) {
         res.status(403).send({
           message: "User " + email + " does not exists!",
         });
-      } else if (user) {
+      } else {
         res.status(200);
         res.send("Your password is updated!");
-      } else {
-        res.send("ok");
       }
-    })
-    .catch((err) => next(err));
+    }
+  } catch (err) {
+    next(err);
+  }
 };
 
 export const removeUser = async (
@@ -93,12 +91,15 @@ export const removeUser = async (
   res: Response,
   next: NextFunction
 ) => {
-  const email = req.params.userEmail;
-  await User.destroy({ where: { email: req.params.userEmail } })
-    .then((user) => {
+  try {
+    const email = req.params.userEmail;
+    const user = await User.destroy({ where: { email: req.params.userEmail } });
+    if (user) {
       res.statusCode = 200;
       res.setHeader("Content-Type", "application/json");
       res.send("User has been deleted!");
-    })
-    .catch((err) => next(err));
+    }
+  } catch (err) {
+    next(err);
+  }
 };
