@@ -25,10 +25,10 @@ export const FunctionalBody: React.FC = () => {
   }, []);
 
   const handleFetch = async () => {
-    api.get("/").then((res) => {
-      const hikes = res.data.hikes;
-    });
+    const res = await api.get("/");
+    const hikes = res.data.hikes;
   };
+
   return (
     <Container>
       <div className="functional-intro">
