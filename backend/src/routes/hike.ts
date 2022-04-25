@@ -1,6 +1,11 @@
 import express, { Request, Response, NextFunction } from "express";
 import bodyParser from "body-parser";
-import { addhike, updateHikeTitle, removeHike, getHikes } from "../controllers/hike";
+import {
+  addhike,
+  updateHikeTitle,
+  removeHike,
+  getHikes,
+} from "../controllers/hike";
 
 const router = express.Router();
 

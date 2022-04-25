@@ -75,12 +75,9 @@ export const getHikes = async (
   try {
     const hikes = await Hike.findAll({});
     if (hikes) {
-      //  const obj: Hikeslist = JSON.parse(hikes);
       res.status(200);
       res.setHeader("Content-Type", "application/json");
-      //  res.json({ status: "returned Successful!" });
-      //  res.send({hikes:hikeslist});
-      res.send("done");
+       res.send({hikes:hikes});
     } else {
       res.status(403);
       res.send("No Hikes Found!");
