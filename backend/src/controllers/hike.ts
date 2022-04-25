@@ -66,3 +66,23 @@ export const removeHike = async (
     next(err);
   }
 };
+
+export const getHikes = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const hikes = await Hike.findAll({});
+    if (hikes) {
+      res.status(200);
+      res.setHeader("Content-Type", "application/json");
+       res.send({hikes:hikes});
+    } else {
+      res.status(403);
+      res.send("No Hikes Found!");
+    }
+  } catch (err) {
+    next(err);
+  }
+};

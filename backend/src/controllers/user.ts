@@ -103,3 +103,11 @@ export const removeUser = async (
     next(err);
   }
 };
+
+export const logout = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  res.send("logout");
+};

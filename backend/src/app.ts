@@ -13,22 +13,21 @@ import User from "./models/user.model";
 import Hike from "./models/hike.model";
 import usersRouter from "./routes/user";
 import hikesRouter from "./routes/hike";
+import cors from "cors";
+
+const Usermodel = User;
+const Hikemodel = Hike;
 
 config();
 
 const app: Application = express();
 
-const Usermodel = User;
-const Hikemodel = Hike;
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
   res.status(200);
-  res.send("Hello from ts App");
-});
-
-app.get("/test", (req: Request, res: Response, next: NextFunction) => {
-  res.send("Hello from ts App2222");
+  res.send("Hello from Hikers");
 });
 
 app.use("/users", usersRouter);
@@ -64,4 +63,7 @@ const server: Server = app.listen(PORT, async () => {
   });
 });
 
+app.get("/test", (req: Request, res: Response, next: NextFunction) => {
+  res.send("Hello from ts App2222");
+});
 export default app;

@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container } from "./FunctionalBody.style";
 import { Button } from "../Button/Button";
 import { CardComp } from "../Card/Card";
 import { State } from "../../reducers/rootReducer";
 import { useSelector } from "react-redux";
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: "http://localhost:3000/hikes/allhikes",
+});
 
 export const FunctionalBody: React.FC = () => {
   const navigate = useNavigate();
@@ -14,6 +19,16 @@ export const FunctionalBody: React.FC = () => {
   const navToNewCard = () => {
     navigate("/newcard");
   };
+
+  useEffect(() => {
+    handleFetch();
+  }, []);
+
+  const handleFetch = async () => {
+    const res = await api.get("/");
+    const hikes = res.data.hikes;
+  };
+
   return (
     <Container>
       <div className="functional-intro">
