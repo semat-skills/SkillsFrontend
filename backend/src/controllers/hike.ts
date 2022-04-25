@@ -1,28 +1,24 @@
 import { Request, Response, NextFunction } from "express";
 import Hike from "../models/hike.model";
 
-
-type Hikeslist = {
-  hikes:[]
-}
 export const addhike = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  await Hike.create({
-    img: req.body.img,
-    title: req.body.title,
-    text: req.body.text,
-  })
-    .then(
-      (hike) => {
-        res.status(200);
-        res.json({ status: "Added Successful!" });
-      },
-      (err) => next(err)
-    )
-    .catch((err) => next(err));
+  try {
+    const hike = await Hike.create({
+      img: req.body.img,
+      title: req.body.title,
+      text: req.body.text,
+    });
+    if (hike) {
+      res.status(200);
+      res.json({ status: "Added Successful!" });
+    }
+  } catch (err) {
+    next(err);
+  }
 };
 
 export const updateHikeTitle = async (
@@ -30,10 +26,14 @@ export const updateHikeTitle = async (
   res: Response,
   next: NextFunction
 ) => {
-  const hikeId = req.params.hikeId;
-  await Hike.update({ title: req.body.title }, { where: { id: hikeId } })
+  try {
+    const hikeId = req.params.hikeId;
+    const hike = await Hike.update(
+      { title: req.body.title },
+      { where: { id: hikeId } }
+    );
 
-    .then((hike) => {
+    if (hike) {
       const hikeValue = hike.at(0);
       if (hikeValue === 0) {
         res.status(403).send({
@@ -42,11 +42,11 @@ export const updateHikeTitle = async (
       } else if (hike) {
         res.status(200);
         res.send("Your Hike is updated!");
-      } else {
-        res.send("ok");
       }
-    })
-    .catch((err) => next(err));
+    }
+  } catch (err) {
+    next(err);
+  }
 };
 
 export const removeHike = async (
@@ -54,14 +54,17 @@ export const removeHike = async (
   res: Response,
   next: NextFunction
 ) => {
-  const hikeId = req.params.hikeId;
-  await Hike.destroy({ where: { id: hikeId } })
-    .then((hike) => {
+  try {
+    const hikeId = req.params.hikeId;
+    const hike = await Hike.destroy({ where: { id: hikeId } });
+    if (hike) {
       res.statusCode = 200;
       res.setHeader("Content-Type", "application/json");
       res.send("Hike has been deleted!");
-    })
-    .catch((err) => next(err));
+    }
+  } catch (err) {
+    next(err);
+  }
 };
 
 export const getHikes = async (
@@ -70,16 +73,11 @@ export const getHikes = async (
   next: NextFunction
 ) => {
   try {
-    // res.setHeader('Content-Type', 'application/json');
-    // res.send("done");
     const hikes = await Hike.findAll({});
     if (hikes) {
-    //  const obj: Hikeslist = JSON.parse(hikes);
       res.status(200);
-      res.setHeader('Content-Type', 'application/json');
-      //  res.json({ status: "returned Successful!" });
-    //  res.send({hikes:hikeslist});
-    res.send("done")
+      res.setHeader("Content-Type", "application/json");
+       res.send({hikes:hikes});
     } else {
       res.status(403);
       res.send("No Hikes Found!");

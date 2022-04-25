@@ -5,6 +5,11 @@ import { Button } from "../Button/Button";
 import { CardComp } from "../Card/Card";
 import { State } from "../../reducers/rootReducer";
 import { useSelector } from "react-redux";
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: "http://localhost:3000/hikes/allhikes",
+});
 
 export const FunctionalBody: React.FC = () => {
   const navigate = useNavigate();
@@ -15,48 +20,15 @@ export const FunctionalBody: React.FC = () => {
     navigate("/newcard");
   };
 
-  // useEffect(() => {
-  //   fetch('http://localhost:3000/hikes/allhikes')
-  //     .then(res => {
-  //       // if (res.ok) {
-  //       //   console.log('SUCCESS');
-  //       // } else {
-  //       //   console.log('not Successful');
-  //       // }
-  //       console.log("in")
-  //     //  return res.json();
-  //     })
-  //     .then(data => {
-  //       console.log(data);
-  //     })
-  //     .catch(error => console.log('ERROR!'));
-  // }, []);
+  useEffect(() => {
+    handleFetch();
+  }, []);
 
-  const handleFetch = async() => {
-    return await fetch(
-      "http://localhost:3000/hikes/allhikes"
-      // , {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     Accept: "application/json",
-      //   },
-      // }
-    )
-      .then((response) => {
-        console.log("ress");
-        let resp = JSON.stringify(response);
-        const re = JSON.parse(resp);
-        console.log(re)
-        return re;
-
-        // return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-      })
-
-      .catch((error) => console.log("ERROR!"));
+  const handleFetch = async () => {
+    const res = await api.get("/");
+    const hikes = res.data.hikes;
   };
+
   return (
     <Container>
       <div className="functional-intro">
@@ -84,7 +56,6 @@ export const FunctionalBody: React.FC = () => {
             </div>
           </div>
         </div>
-        <button onClick={handleFetch}>Fetch</button>
 
         <div className="cards">
           {CardsArr.map((card) => {

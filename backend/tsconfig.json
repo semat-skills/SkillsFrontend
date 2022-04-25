@@ -4,6 +4,7 @@
   ],
   "compilerOptions": {
     "experimentalDecorators": true,
+    // "types": ["jest", "node"],
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Projects */

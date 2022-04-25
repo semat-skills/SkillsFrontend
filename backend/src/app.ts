@@ -13,8 +13,7 @@ import User from "./models/user.model";
 import Hike from "./models/hike.model";
 import usersRouter from "./routes/user";
 import hikesRouter from "./routes/hike";
-import cors from 'cors';
-
+import cors from "cors";
 
 const Usermodel = User;
 const Hikemodel = Hike;
@@ -22,7 +21,6 @@ const Hikemodel = Hike;
 config();
 
 const app: Application = express();
-
 
 app.use(express.json());
 app.use(cors());
