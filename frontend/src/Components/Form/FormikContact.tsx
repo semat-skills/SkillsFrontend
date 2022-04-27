@@ -3,7 +3,6 @@ import Card from "@material-ui/core/Card";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Formik, FormikProps } from "formik";
 import { Container } from "../NewCard Body/NewCardForm/CardForm.style";
-import { useNavigate } from "react-router-dom";
 import { Button } from "../Button/Button";
 import { Input } from "../Input/Input";
 import { contactValidationSchema } from "../../util/util";
@@ -33,8 +32,8 @@ const api = axios.create({
 
 const FormikContact: React.FC = () => {
   const handleContact = async (values: ContactValues) => {
-    const searchFor = 'hiking';
-    const res = await api.post("/", {values, searchFor});
+    const searchFor = "hiking";
+    const res = await api.post("/", { values, searchFor });
   };
 
   return (
@@ -59,11 +58,7 @@ const ContactForm: (props: FormikProps<ContactValues>) => JSX.Element = ({
   touched,
 }) => {
   const classes = useStyles();
-  const navigate = useNavigate();
 
-  // const navToLogin = (event: React.MouseEvent<HTMLElement>) => {
-  //   navigate(`/login`);
-  // };
   return (
     <Container className="container">
       <form
