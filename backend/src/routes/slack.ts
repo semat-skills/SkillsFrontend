@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.use(bodyParser.json());
 
-router.post("/", addContact);
+// router.post("/", addContact);
 
 export default router;
