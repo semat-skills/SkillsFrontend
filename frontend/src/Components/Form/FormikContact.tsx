@@ -33,8 +33,8 @@ const api = axios.create({
 
 const FormikContact: React.FC = () => {
   const handleContact = async (values: ContactValues) => {
-    console.log(values);
-    const res = await api.post("/", values);
+    const searchFor = 'hiking';
+    const res = await api.post("/", {values, searchFor});
   };
 
   return (

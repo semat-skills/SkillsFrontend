@@ -4,7 +4,7 @@ import { ContactValues } from "../types";
 const query =
   "mutation ($myItemName: String!, $columnVals: JSON!) { create_item (board_id:2584907448, item_name:$myItemName, column_values:$columnVals) { id } }";
 
-export const searchImg = async () => {
+export const searchImg = async (searchFor: string) => {
   // console.log(contact.fullname);
   // const vars = {
   //   myItemName: contact.title,
@@ -17,7 +17,7 @@ export const searchImg = async () => {
   // };
 
   const search: AxiosResponse = await axios.get(
-    "https://www.googleapis.com/customsearch/v1?key=AIzaSyDP8Pp61bKmJrQ-0cWhooSbU1ICaSXvPMY&cx=e8d343b583c8b4120&q=hiking"
+    `https://www.googleapis.com/customsearch/v1?key=AIzaSyDP8Pp61bKmJrQ-0cWhooSbU1ICaSXvPMY&cx=e8d343b583c8b4120&q=${searchFor}`
   );
 
   return(search.data.items[0].pagemap.imageobject[0].thumbnailurl)

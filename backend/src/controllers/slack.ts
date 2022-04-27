@@ -2,7 +2,6 @@ import { Request, Response, NextFunction } from "express";
 import Contact from "../models/contact.model";
 import { handleIntegration } from "../API Manager/mondayAPI";
 import { searchImg } from "../API Manager/googleAPI";
-// import handleIntegration 
 
 export const addContact = async (
   req: Request,

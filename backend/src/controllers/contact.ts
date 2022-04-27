@@ -2,7 +2,6 @@ import { Request, Response, NextFunction } from "express";
 import Contact from "../models/contact.model";
 import { handleIntegration } from "../API Manager/mondayAPI";
 import { searchImg } from "../API Manager/googleAPI";
-// import handleIntegration 
 
 export const addContact = async (
   req: Request,
@@ -10,14 +9,13 @@ export const addContact = async (
   next: NextFunction
 ) => {
   try {
-
-    const img: string = await searchImg();
+    const img: string = await searchImg(req.body.searchFor);
 
     const contact = await Contact.create({
-      fullname: req.body.fullname,
-      email: req.body.email,
-      title: req.body.title,
-      text: req.body.text,
+      fullname: req.body.values.fullname,
+      email: req.body.values.email,
+      title: req.body.values.title,
+      text: req.body.values.text,
       img: img,
     });
     if (contact) {
@@ -25,7 +23,6 @@ export const addContact = async (
       res.json({ status: "Added Successful!" });
 
       handleIntegration(req.body, img);
-      
     }
   } catch (err) {
     next(err);
