@@ -23,3 +23,22 @@
 //    dialect: 'postgres',
 //    models: [__dirname + '/models'] 
 // });
+
+
+
+
+ fetch("https://api.monday.com/v2", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization:
+        "eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjE1NzE4NzkxOCwidWlkIjoyODY2MjMxOCwiaWFkIjoiMjAyMi0wNC0yNFQxMDoyNDoyNi4wNTNaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MTEwMjMyOCwicmduIjoidXNlMSJ9.3R7Xde6GJM1PBcvyPsjOkRq5UgBFUaFIvN5TrxyEFEU",
+    },
+    body: JSON.stringify({
+      query: query5,
+      variables: JSON.stringify(vars2),
+    }),
+  })
+    .then((res) => res.json())
+    .then((res) => console.log(JSON.stringify(res, null, 2)));
+};

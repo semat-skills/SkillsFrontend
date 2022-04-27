@@ -13,10 +13,13 @@ import User from "./models/user.model";
 import Hike from "./models/hike.model";
 import usersRouter from "./routes/user";
 import hikesRouter from "./routes/hike";
+import contactRouter from "./routes/contact";
 import cors from "cors";
+import Contact from "./models/contact.model";
 
 const Usermodel = User;
 const Hikemodel = Hike;
+const Contactmodel = Contact;
 
 config();
 
@@ -32,6 +35,7 @@ app.get("/", (req: Request, res: Response, next: NextFunction) => {
 
 app.use("/users", usersRouter);
 app.use("/hikes", hikesRouter);
+app.use("/contact", contactRouter);
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   next(new createHttpError.NotFound());
@@ -63,7 +67,4 @@ const server: Server = app.listen(PORT, async () => {
   });
 });
 
-app.get("/test", (req: Request, res: Response, next: NextFunction) => {
-  res.send("Hello from ts App2222");
-});
 export default app;

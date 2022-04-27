@@ -72,6 +72,10 @@ export const getHikes = async (
   res: Response,
   next: NextFunction
 ) => {
+
+
+
+  
   try {
     const hikes = await Hike.findAll({});
     if (hikes) {

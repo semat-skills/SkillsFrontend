@@ -28,5 +28,4 @@ export type ContactValues = {
   email: string;
   title: string;
   text: string;
-  img: string;
 };
