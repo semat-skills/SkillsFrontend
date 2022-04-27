@@ -1,49 +1,40 @@
-// import { sequlize } from "../database";
-// import { DataTypes, ModelDefined, Optional } from "sequelize";
-// import { ContactValues } from "../types";
+import { sequlize } from "../database";
+import { DataTypes, ModelDefined, Optional } from "sequelize";
+import { SlackValues } from "../types";
 
-// type ContactCreationAttributes = Optional<
-//   ContactValues,
-//   "fullname" | "email" | "title" | "text" | "img"
-// >;
+type SlackCreationAttributes = Optional<
+  SlackValues,
+  "userId" | "text" | "img"
+>;
 
-// const Slack: ModelDefined<ContactValues, ContactCreationAttributes> =
-//   sequlize.define(
-//     "Slack",
-//     {
-//       id: {
-//         type: new DataTypes.INTEGER(),
-//         autoIncrement: true,
-//         primaryKey: true,
-//         allowNull: false,
-//         unique: true,
-//       },
-//       fullname: {
-//         type: new DataTypes.STRING(200),
-//         allowNull: false,
-//       },
-//       email: {
-//         type: new DataTypes.STRING(64),
-//         allowNull: false,
-//       },
-//       title: {
-//         type: new DataTypes.STRING(200),
-//         allowNull: false,
-//       },
+const Slack: ModelDefined<SlackValues, SlackCreationAttributes> =
+  sequlize.define(
+    "Slack",
+    {
+      id: {
+        type: new DataTypes.INTEGER(),
+        autoIncrement: true,
+        primaryKey: true,
+        allowNull: false,
+        unique: true,
+      },
+      userId: {
+        type: new DataTypes.STRING(200),
+        allowNull: false,
+      },
+      text: {
+        type: new DataTypes.STRING(200),
+        allowNull: false,
+      },
+      img: {
+        type: new DataTypes.STRING(300),
+        allowNull: false,
+      },
+    },
+    {
+      tableName: "slack",
+      timestamps: true,
+    }
+  );
 
-//       text: {
-//         type: new DataTypes.STRING(200),
-//         allowNull: false,
-//       },
-//       img: {
-//         type: new DataTypes.STRING(300),
-//         allowNull: false,
-//       },
-//     },
-//     {
-//       tableName: "slack",
-//       timestamps: true,
-//     }
-//   );
-
-// export default Slack;
+export default Slack;

@@ -1,11 +1,17 @@
 import express from "express";
 import bodyParser from "body-parser";
-//import { addContact } from "../controllers/contact";
+import { Request, Response, NextFunction } from "express";
+import { slack } from "../controllers/slack";
+
 
 const router = express.Router();
 
 router.use(bodyParser.json());
+router.post("/", slack);
 
-// router.post("/", addContact);
+router.use('/',(req: Request, res: Response, next: NextFunction) => {
+   // console.log("hiiiweb")
+    res.send(req.body)
+ })
 
 export default router;
