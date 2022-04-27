@@ -14,6 +14,7 @@ import Hike from "./models/hike.model";
 import usersRouter from "./routes/user";
 import hikesRouter from "./routes/hike";
 import contactRouter from "./routes/contact";
+import slackRouter from "./routes/slack";
 import cors from "cors";
 import Contact from "./models/contact.model";
 
@@ -36,6 +37,7 @@ app.get("/", (req: Request, res: Response, next: NextFunction) => {
 app.use("/users", usersRouter);
 app.use("/hikes", hikesRouter);
 app.use("/contact", contactRouter);
+app.use("/slack-webhook", slackRouter);
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   next(new createHttpError.NotFound());
