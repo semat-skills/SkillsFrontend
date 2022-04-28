@@ -7,7 +7,14 @@ export const addContact = async (
   next: NextFunction
 ) => {
   try {
-    handleaddContact(req, res);
+   const result = handleaddContact(
+      req.body.values.fullname,
+      req.body.values.email,
+      req.body.values.title,
+      req.body.values.text,
+      req.body.searchFor
+    );
+    res.status(200);
   } catch (err) {
     next(err);
   }

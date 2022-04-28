@@ -4,26 +4,28 @@ import { handleIntegration } from "../API Manager/mondayAPI";
 import { searchImg } from "../API Manager/googleAPI";
 
 export const handleaddContact = async (
-  req: Request,
-  res: Response,
+  fullname: string,
+  email:string,
+  title:string,
+  text:string,
+  searchFor:string
 ) => {
   try {
-    const img: string = await searchImg(req.body.searchFor);
+    const img: string = await searchImg(searchFor);
 
     const contact = await Contact.create({
-      fullname: req.body.values.fullname,
-      email: req.body.values.email,
-      title: req.body.values.title,
-      text: req.body.values.text,
+      fullname: fullname,
+      email: email,
+      title: title,
+      text: text,
       img: img,
     });
     if (contact) {
-      res.status(200);
-      res.json({ status: "Added Successful!" });
+      const res = { status: 200, msg: "Added Successfully!" };
 
-      handleIntegration(req.body.values, img);
+     // handleIntegration(fullname, email, title, text, searchFor, img);
     }
   } catch (err) {
-    res.status(400);
+    const res = { status: 400, msg: "ERROR" };
   }
 };
