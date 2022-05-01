@@ -6,4 +6,10 @@ export type ContactValues = {
     text: string;
     img: string;
   };
+
+  export type Res = {
+    status: number,
+    msg : string,
+    hikes ?: object
+  }
   

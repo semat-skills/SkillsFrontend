@@ -12,7 +12,15 @@ export const addhike = async (
   next: NextFunction
 ) => {
   try {
-    handleaddhike(req, res);
+    const result = await handleaddhike(
+      req.body.img,
+      req.body.title,
+      req.body.text
+    );
+    if (result) {
+      res.status(result.status);
+      res.send(result.msg);
+    }
   } catch (err) {
     next(err);
   }
@@ -24,7 +32,14 @@ export const updateHikeTitle = async (
   next: NextFunction
 ) => {
   try {
-    handleupdateHikeTitle(req, res);
+    const result = await handleupdateHikeTitle(
+      req.params.hikeId,
+      req.body.title
+    );
+    if (result) {
+      res.status(result.status);
+      res.send(result.msg);
+    }
   } catch (err) {
     next(err);
   }
@@ -36,7 +51,11 @@ export const removeHike = async (
   next: NextFunction
 ) => {
   try {
-    handleremoveHike(req, res);
+    const result = await handleremoveHike(req.params.hikeId);
+    if (result) {
+      res.status(result.status);
+      res.send(result.msg);
+    }
   } catch (err) {
     next(err);
   }
@@ -48,7 +67,11 @@ export const getHikes = async (
   next: NextFunction
 ) => {
   try {
-    handlegetHikes(req, res);
+    const result = await handlegetHikes();
+    if (result) {
+      res.status(result.status);
+      res.send(result.msg);
+    }
   } catch (err) {
     next(err);
   }

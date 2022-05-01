@@ -1,72 +1,93 @@
-import { Request, Response } from "express";
 import Hike from "../models/hike.model";
+import { Res } from "../types";
 
-export const handleaddhike = async (req: Request, res: Response) => {
+export const handleaddhike = async (
+  img: string,
+  title: string,
+  text: string
+) => {
   try {
     const hike = await Hike.create({
-      img: req.body.img,
-      title: req.body.title,
-      text: req.body.text,
+      img: img,
+      title: title,
+      text: text,
     });
     if (hike) {
-      res.status(200);
-      res.json({ status: "Added Successful!" });
+      const res: Res = {
+        status: 200,
+        msg: "Added Successful!",
+      };
+      return res;
     }
   } catch (err) {
-    res.status(400);
+    const res: Res = { status: 400, msg: "ERROR!" };
+    return res;
   }
 };
 
-export const handleupdateHikeTitle = async (req: Request, res: Response) => {
+export const handleupdateHikeTitle = async (hikeId: string, title: string) => {
   try {
-    const hikeId = req.params.hikeId;
-    const hike = await Hike.update(
-      { title: req.body.title },
-      { where: { id: hikeId } }
-    );
+    const hikeid = hikeId;
+    const hike = await Hike.update({ title: title }, { where: { id: hikeid } });
 
     if (hike) {
       const hikeValue = hike.at(0);
       if (hikeValue === 0) {
-        res.status(403).send({
-          message: "Hike " + hikeId + " does not exists!",
-        });
+        const res: Res = {
+          status: 403,
+          msg: "Hike " + hikeid + " does not exists!",
+        };
+        return res;
       } else if (hike) {
-        res.status(200);
-        res.send("Your Hike is updated!");
+        const res: Res = {
+          status: 200,
+          msg: "Your Hike is updated!",
+        };
+        return res;
       }
     }
   } catch (err) {
-    res.status(400);
+    const res: Res = { status: 400, msg: "ERROR!" };
+    return res;
   }
 };
 
-export const handleremoveHike = async (req: Request, res: Response) => {
+export const handleremoveHike = async (hikeId: string) => {
   try {
-    const hikeId = req.params.hikeId;
-    const hike = await Hike.destroy({ where: { id: hikeId } });
+    const hikeid = hikeId;
+    const hike = await Hike.destroy({ where: { id: hikeid } });
     if (hike) {
-      res.statusCode = 200;
-      res.setHeader("Content-Type", "application/json");
-      res.send("Hike has been deleted!");
+      const res: Res = {
+        status: 200,
+        msg: "Hike has been deleted!",
+      };
+      return res;
     }
   } catch (err) {
-    res.status(400);
+    const res: Res = { status: 400, msg: "ERROR!" };
+    return res;
   }
 };
 
-export const handlegetHikes = async (req: Request, res: Response) => {
+export const handlegetHikes = async () => {
   try {
     const hikes = await Hike.findAll({});
     if (hikes) {
-      res.status(200);
-      res.setHeader("Content-Type", "application/json");
-      res.send({ hikes: hikes });
+      const res: Res = {
+        status: 200,
+        msg: "done",
+        hikes: hikes,
+      };
+      return res;
     } else {
-      res.status(403);
-      res.send("No Hikes Found!");
+      const res: Res = {
+        status: 403,
+        msg: "No Hikes Found!",
+      };
+      return res;
     }
   } catch (err) {
-    res.status(400);
+    const res: Res = { status: 400, msg: "ERROR!" };
+    return res;
   }
 };

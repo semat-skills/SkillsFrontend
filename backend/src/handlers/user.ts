@@ -1,93 +1,109 @@
-import { Request, Response} from "express";
 import User from "../models/user.model";
+import { Res } from "../types";
 
-export const handleSignup = async (req: Request, res: Response) => {
+export const handleSignup = async (
+  email: string,
+  fullname: string,
+  password: string
+) => {
   try {
-    const user = await User.findOne({ where: { email: req.body.email } });
+    const user = await User.findOne({ where: { email: email } });
     if (user) {
-      res.status(403).send({
-        message: "User " + req.body.email + " already exists!",
-      });
+      const res: Res = {
+        status: 403,
+        msg: "User " + email + " already exists!",
+      };
+      return res;
     } else {
       const newUser = await User.create({
-        email: req.body.email,
-        fullname: req.body.fullname,
-        password: req.body.password,
+        email: email,
+        fullname: fullname,
+        password: password,
       });
 
       if (newUser) {
-        res.status(200);
-        res.json({ status: "Resgistration Successful!" });
+        const res: Res = { status: 200, msg: "Resgistration Successful!" };
+        return res;
       }
     }
   } catch (err) {
-    res.status(400);
+    const res: Res = { status: 400, msg: "Error!" };
+    return res;
   }
 };
 
-export const handleLogin = async (req: Request, res: Response) => {
+export const handleLogin = async (email: string, password: string) => {
   try {
-    const user = await User.findOne({ where: { email: req.body.email } });
+    const user = await User.findOne({ where: { email: email } });
     if (user === null) {
-      res.status(403).send({
-        message: "User " + req.body.email + " does not exists!",
-      });
+      const res: Res = {
+        status: 403,
+        msg: "User " + email + " does not exists!",
+      };
+      return res;
     } else if (user) {
       const email = user.getDataValue("email");
       const password = user.getDataValue("password");
 
-      if (password !== req.body.password) {
-        res.status(403);
-        res.send("Your password is incorrect!");
-      } else if (email === req.body.email && password == req.body.password) {
-        res.status(200);
-
-        res.end("You are authenticated!");
+      if (password !== password) {
+        const res: Res = { status: 403, msg: "Your password is incorrect!" };
+        return res;
+      } else if (email === email && password == password) {
+        const res: Res = { status: 200, msg: "You are authenticated!" };
+        return res;
       }
     }
   } catch (err) {
-    res.status(400);
+    const res: Res = { status: 400, msg: "ERROR!" };
+    return res;
   }
 };
 
-export const handleUpdatePassword = async (req: Request, res: Response) => {
+export const handleUpdatePassword = async (
+  userEmail: string,
+  password: string
+) => {
   try {
-    const email = req.params.userEmail;
+    const email = userEmail;
     const user = await User.update(
-      { password: req.body.password },
-      { where: { email: req.params.userEmail } }
+      { password: password },
+      { where: { email: userEmail } }
     );
 
     if (user) {
       const userValue = user.at(0);
       if (userValue === 0) {
-        res.status(403).send({
-          message: "User " + email + " does not exists!",
-        });
+        const res: Res = {
+          status: 403,
+          msg: "User " + email + " does not exists!",
+        };
+        return res;
       } else {
-        res.status(200);
-        res.send("Your password is updated!");
+        const res: Res = { status: 200, msg: "Your password is updated!" };
+        return res;
       }
     }
   } catch (err) {
-    res.status(400);
+    const res: Res = { status: 400, msg: "ERROE!" };
+    return res;
   }
 };
 
-export const handlerRmoveUser = async (req: Request, res: Response) => {
+export const handlerRmoveUser = async (userEmail: string) => {
   try {
-    const email = req.params.userEmail;
-    const user = await User.destroy({ where: { email: req.params.userEmail } });
+    const email = userEmail;
+    const user = await User.destroy({ where: { email: userEmail } });
     if (user) {
-      res.statusCode = 200;
-      res.setHeader("Content-Type", "application/json");
-      res.send("User has been deleted!");
+      const res: Res = { status: 200, msg: "User has been deleted!" };
+      return res;
     }
   } catch (err) {
-    res.status(400);
+    const res: Res = { status: 400, msg: "ERROE!" };
+    return res;
   }
 };
 
-export const handleLogout = async (req: Request, res: Response) => {
-  res.send("logout");
+export const handleLogout = async () => {
+  const res: Res = { status: 200, msg: "logout" };
+  return res;
 };

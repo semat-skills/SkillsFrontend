@@ -1,14 +1,14 @@
-import { Request, Response } from "express";
 import Contact from "../models/contact.model";
 import { handleIntegration } from "../API Manager/mondayAPI";
 import { searchImg } from "../API Manager/googleAPI";
+import { Res } from "../types";
 
 export const handleaddContact = async (
   fullname: string,
-  email:string,
-  title:string,
-  text:string,
-  searchFor:string
+  email: string,
+  title: string,
+  text: string,
+  searchFor: string
 ) => {
   try {
     const img: string = await searchImg(searchFor);
@@ -21,9 +21,9 @@ export const handleaddContact = async (
       img: img,
     });
     if (contact) {
-      const res = { status: 200, msg: "Added Successfully!" };
-
-     // handleIntegration(fullname, email, title, text, searchFor, img);
+      handleIntegration(fullname, email, title, text, img);
+      const res: Res = { status: 200, msg: "Added Successfully!" };
+      return res;
     }
   } catch (err) {
     const res = { status: 400, msg: "ERROR" };

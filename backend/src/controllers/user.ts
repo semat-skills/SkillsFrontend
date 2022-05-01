@@ -13,7 +13,16 @@ export const signup = async (
   next: NextFunction
 ) => {
   try {
-    handleSignup(req, res);
+    const result = await handleSignup(
+      req.body.email,
+      req.body.fullname,
+      req.body.password
+    );
+
+    if (result) {
+      res.status(result.status);
+      res.send(result.msg);
+    }
   } catch (err) {
     next(err);
   }
@@ -25,7 +34,12 @@ export const login = async (
   next: NextFunction
 ) => {
   try {
-    handleLogin(req, res);
+    const result = await handleLogin(req.body.email, req.body.password);
+
+    if (result) {
+      res.status(result.status);
+      res.send(result.msg);
+    }
   } catch (err) {
     next(err);
   }
@@ -37,7 +51,15 @@ export const updatePassword = async (
   next: NextFunction
 ) => {
   try {
-    handleUpdatePassword(req, res);
+    const result = await handleUpdatePassword(
+      req.params.userEmail,
+      req.body.password
+    );
+
+    if (result) {
+      res.status(result.status);
+      res.send(result.msg);
+    }
   } catch (err) {
     next(err);
   }
@@ -49,7 +71,12 @@ export const removeUser = async (
   next: NextFunction
 ) => {
   try {
-    handlerRmoveUser(req, res);
+    const result = await handlerRmoveUser(req.params.userEmail);
+
+    if (result) {
+      res.status(result.status);
+      res.send(result.msg);
+    }
   } catch (err) {
     next(err);
   }
@@ -60,5 +87,10 @@ export const logout = async (
   res: Response,
   next: NextFunction
 ) => {
-  handleLogout(req, res);
+  const result = await handleLogout();
+
+  if (result) {
+    res.status(result.status);
+    res.send(result.msg);
+  }
 };
