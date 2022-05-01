@@ -32,7 +32,7 @@ const api = axios.create({
 
 const FormikContact: React.FC = () => {
   const handleContact = async (values: ContactValues) => {
-    const searchFor = "hiking";
+    const searchFor = values.title;
     const res = await api.post("/", { values, searchFor });
   };
 
@@ -102,7 +102,7 @@ const ContactForm: (props: FormikProps<ContactValues>) => JSX.Element = ({
               inputId="title"
               inputName="title"
               inputType="title"
-              placeholder="title"
+              placeholder="Search for..."
               value={values.title}
               onChange={handleChange}
               className={`input-text form-control ${

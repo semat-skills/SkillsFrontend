@@ -1,5 +1,5 @@
 import Slack from "../models/slack.model";
-import { handleIntegration } from "../API Manager/slack";
+import { handleIntegration, handleResponse } from "../API Manager/slack";
 import { searchImg } from "../API Manager/googleAPI";
 
 export const handleSlack = async (userId: string, searchFor: string) => {
@@ -13,6 +13,7 @@ export const handleSlack = async (userId: string, searchFor: string) => {
     });
     if (SlackMsg) {
       handleIntegration(userId, searchFor, img);
+      handleResponse(img);
       const res = { status: 200, msg: "Added Successful!" };
       return res;
     }

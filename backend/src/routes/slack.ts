@@ -10,7 +10,8 @@ router.use(bodyParser.json());
 router.post("/", slack);
 
 router.use('/',(req: Request, res: Response, next: NextFunction) => {
-   // console.log("hiiiweb")
+   console.log('here');
+   
     res.send(req.body)
  })
 

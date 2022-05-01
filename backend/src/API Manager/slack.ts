@@ -29,4 +29,20 @@ export const handleIntegration = async (
       },
     }
   );
-};
+  }
+  export const handleResponse = async (img: string) => {
+
+    const addToBoard: AxiosResponse = await axios.post(
+      "https://hooks.slack.com/services/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",
+      {
+      text:`Hello, Semat!, 
+      Thank you for choosing us. This is your search result: ${img}`
+        
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+}

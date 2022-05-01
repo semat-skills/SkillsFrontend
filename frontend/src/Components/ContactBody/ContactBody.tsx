@@ -8,7 +8,7 @@ export const ContactBody: React.FC<ContactBodyProps> = ({}) => {
   return (
     <Container>
       <div className="contact-intro">
-        <div className="section-title">Add New Card</div>
+        <div className="section-title">Contact</div>
         <div className="section-text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum
           gravida scelerisque nunc senectus ac. Aliquam auctor lacinia
