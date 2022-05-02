@@ -1,7 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { FirstRow, Container, Input, SecondRow } from "./Footer.style";
 
 export const Footer: React.FC = () => {
+  const navigate = useNavigate();
+  const navToContact = (event: React.MouseEvent<HTMLElement>) => {
+    navigate(`/contact`);
+  }
   return (
     <Container>
       <div className="f-container">
@@ -16,7 +21,10 @@ export const Footer: React.FC = () => {
               <a className="page" href='#'>About</a>
             </li>
             <li>
-              <a className="page" href='#'>Trips</a>
+              <a className="page" onClick={navToContact}>Contact</a>
+            </li>
+            <li>
+              <a className="page" href='#' >Trips</a>
             </li>
             <li>
               <a className="page" href='#'>Trails</a>

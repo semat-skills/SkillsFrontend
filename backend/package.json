@@ -34,7 +34,10 @@
   },
   "dependencies": {
     "-": "^0.0.1",
+    "@slack/events-api": "^3.0.1",
+    "@slack/web-api": "^6.7.1",
     "@types/cors": "^2.8.12",
+    "axios": "^0.26.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",

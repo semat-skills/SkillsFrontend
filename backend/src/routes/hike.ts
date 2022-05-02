@@ -1,5 +1,4 @@
 import express, { Request, Response, NextFunction } from "express";
-import bodyParser from "body-parser";
 import {
   addhike,
   updateHikeTitle,
@@ -8,8 +7,6 @@ import {
 } from "../controllers/hike";
 
 const router = express.Router();
-
-router.use(bodyParser.json());
 
 router.get("/", (req: Request, res: Response, next: NextFunction) => {
   res.send("respond with a resource");

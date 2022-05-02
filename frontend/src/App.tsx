@@ -6,6 +6,7 @@ import { Login } from "./Pages/LoginPage/Login";
 import { Signup } from "./Pages/SignupPage/Signup";
 import { FunctionalPage } from "./Pages/FunctionalPage/FunctionalPage";
 import { NewCardPage } from "./Pages/NewCardPage/NewCardPage";
+import { ContactPage } from "./Pages/ContactPage/ContactPage";
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const App: React.FC = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/functional" element={<FunctionalPage />} />
       <Route path="/newcard" element={<NewCardPage />} />
+      <Route path="/contact" element={<ContactPage />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
