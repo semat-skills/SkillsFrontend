@@ -12,12 +12,9 @@ export const signup = async (
   res: Response,
   next: NextFunction
 ) => {
+  const { email, fullname, password } = req.body;
   try {
-    const result = await handleSignup(
-      req.body.email,
-      req.body.fullname,
-      req.body.password
-    );
+    const result = await handleSignup(email, fullname, password);
 
     if (result) {
       res.status(result.status);
@@ -33,8 +30,9 @@ export const login = async (
   res: Response,
   next: NextFunction
 ) => {
+  const { email, password } = req.body;
   try {
-    const result = await handleLogin(req.body.email, req.body.password);
+    const result = await handleLogin(email, password);
 
     if (result) {
       res.status(result.status);
@@ -50,11 +48,9 @@ export const updatePassword = async (
   res: Response,
   next: NextFunction
 ) => {
+  const { userEmail, password } = req.body;
   try {
-    const result = await handleUpdatePassword(
-      req.params.userEmail,
-      req.body.password
-    );
+    const result = await handleUpdatePassword(userEmail, password);
 
     if (result) {
       res.status(result.status);
@@ -70,8 +66,9 @@ export const removeUser = async (
   res: Response,
   next: NextFunction
 ) => {
+  const { userEmail } = req.params;
   try {
-    const result = await handlerRmoveUser(req.params.userEmail);
+    const result = await handlerRmoveUser(userEmail);
 
     if (result) {
       res.status(result.status);
@@ -87,10 +84,14 @@ export const logout = async (
   res: Response,
   next: NextFunction
 ) => {
-  const result = await handleLogout();
+  try {
+    const result = await handleLogout();
 
-  if (result) {
-    res.status(result.status);
-    res.send(result.msg);
+    if (result) {
+      res.status(result.status);
+      res.send(result.msg);
+    }
+  } catch (err) {
+    next(err);
   }
 };

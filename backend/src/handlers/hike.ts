@@ -8,9 +8,9 @@ export const handleaddhike = async (
 ) => {
   try {
     const hike = await Hike.create({
-      img: img,
-      title: title,
-      text: text,
+      img,
+      title,
+      text,
     });
     if (hike) {
       const res: Res = {
@@ -20,15 +20,14 @@ export const handleaddhike = async (
       return res;
     }
   } catch (err) {
-    const res: Res = { status: 400, msg: "ERROR!" };
-    return res;
+    throw new Error("ERROE!");
   }
 };
 
 export const handleupdateHikeTitle = async (hikeId: string, title: string) => {
   try {
     const hikeid = hikeId;
-    const hike = await Hike.update({ title: title }, { where: { id: hikeid } });
+    const hike = await Hike.update({ title }, { where: { id: hikeid } });
 
     if (hike) {
       const hikeValue = hike.at(0);
@@ -47,15 +46,13 @@ export const handleupdateHikeTitle = async (hikeId: string, title: string) => {
       }
     }
   } catch (err) {
-    const res: Res = { status: 400, msg: "ERROR!" };
-    return res;
+    throw new Error("ERROE!");
   }
 };
 
 export const handleremoveHike = async (hikeId: string) => {
   try {
-    const hikeid = hikeId;
-    const hike = await Hike.destroy({ where: { id: hikeid } });
+    const hike = await Hike.destroy({ where: { id: hikeId } });
     if (hike) {
       const res: Res = {
         status: 200,
@@ -64,8 +61,7 @@ export const handleremoveHike = async (hikeId: string) => {
       return res;
     }
   } catch (err) {
-    const res: Res = { status: 400, msg: "ERROR!" };
-    return res;
+    throw new Error("ERROE!");
   }
 };
 
@@ -87,7 +83,6 @@ export const handlegetHikes = async () => {
       return res;
     }
   } catch (err) {
-    const res: Res = { status: 400, msg: "ERROR!" };
-    return res;
+    throw new Error("ERROE!");
   }
 };

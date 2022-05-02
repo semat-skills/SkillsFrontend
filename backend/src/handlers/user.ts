@@ -7,7 +7,7 @@ export const handleSignup = async (
   password: string
 ) => {
   try {
-    const user = await User.findOne({ where: { email: email } });
+    const user = await User.findOne({ where: { email } });
     if (user) {
       const res: Res = {
         status: 403,
@@ -16,9 +16,9 @@ export const handleSignup = async (
       return res;
     } else {
       const newUser = await User.create({
-        email: email,
-        fullname: fullname,
-        password: password,
+        email,
+        fullname,
+        password,
       });
 
       if (newUser) {
@@ -27,14 +27,13 @@ export const handleSignup = async (
       }
     }
   } catch (err) {
-    const res: Res = { status: 400, msg: "Error!" };
-    return res;
+    throw new Error("ERROE!");
   }
 };
 
 export const handleLogin = async (email: string, password: string) => {
   try {
-    const user = await User.findOne({ where: { email: email } });
+    const user = await User.findOne({ where: { email } });
     if (user === null) {
       const res: Res = {
         status: 403,
@@ -54,8 +53,7 @@ export const handleLogin = async (email: string, password: string) => {
       }
     }
   } catch (err) {
-    const res: Res = { status: 400, msg: "ERROR!" };
-    return res;
+    throw new Error("ERROE!");
   }
 };
 
@@ -64,9 +62,8 @@ export const handleUpdatePassword = async (
   password: string
 ) => {
   try {
-    const email = userEmail;
     const user = await User.update(
-      { password: password },
+      { password },
       { where: { email: userEmail } }
     );
 
@@ -75,7 +72,7 @@ export const handleUpdatePassword = async (
       if (userValue === 0) {
         const res: Res = {
           status: 403,
-          msg: "User " + email + " does not exists!",
+          msg: "User " + userEmail + " does not exists!",
         };
         return res;
       } else {
@@ -84,14 +81,12 @@ export const handleUpdatePassword = async (
       }
     }
   } catch (err) {
-    const res: Res = { status: 400, msg: "ERROE!" };
-    return res;
+    throw new Error("ERROE!");
   }
 };
 
 export const handlerRmoveUser = async (userEmail: string) => {
   try {
-    const email = userEmail;
     const user = await User.destroy({ where: { email: userEmail } });
     if (user) {
       const res: Res = { status: 200, msg: "User has been deleted!" };
@@ -104,6 +99,11 @@ export const handlerRmoveUser = async (userEmail: string) => {
 };
 
 export const handleLogout = async () => {
-  const res: Res = { status: 200, msg: "logout" };
-  return res;
+  
+  try{
+    const res: Res = { status: 200, msg: "Loged Out!" };
+    return res;
+  } catch (err) {
+    throw new Error("ERROR!");
+  }
 };

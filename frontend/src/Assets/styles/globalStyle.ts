@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import px2vw from "../styles/px2vw";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -9,14 +8,14 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Roboto"
   }
   :root {
-      font-size: ${px2vw(24)};
+      font-size: 1.67vw;
 
       @media (min-width: 768px) {
-        font-size: ${px2vw(18)};
+        font-size: 1.25vw;
       }
 
       @media (min-width: 1024px) {
-        font-size: ${px2vw(16)};
+        font-size: 1.11vw;
       }
     }
 

@@ -27,7 +27,7 @@ const initialValues = {
 };
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/contact",
+  baseURL: "/contact",
 });
 
 const FormikContact: React.FC = () => {

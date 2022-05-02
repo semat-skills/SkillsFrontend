@@ -2,9 +2,7 @@ import React from "react";
 import ContactForm from "../Form/FormikContact";
 import { Container } from "./ContactBody..style";
 
-interface ContactBodyProps {}
-
-export const ContactBody: React.FC<ContactBodyProps> = ({}) => {
+export const ContactBody: React.FC = () => {
   return (
     <Container>
       <div className="contact-intro">

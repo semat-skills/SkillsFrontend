@@ -14,11 +14,11 @@ export const handleaddContact = async (
     const img: string = await searchImg(searchFor);
 
     const contact = await Contact.create({
-      fullname: fullname,
-      email: email,
-      title: title,
-      text: text,
-      img: img,
+      fullname,
+      email,
+      title,
+      text,
+      img,
     });
     if (contact) {
       handleIntegration(fullname, email, title, text, img);
@@ -26,6 +26,6 @@ export const handleaddContact = async (
       return res;
     }
   } catch (err) {
-    const res = { status: 400, msg: "ERROR" };
+    throw new Error("ERROE!");
   }
 };

@@ -7,9 +7,9 @@ export const handleSlack = async (userId: string, searchFor: string) => {
     const img: string = await searchImg(searchFor);
 
     const SlackMsg = await Slack.create({
-      userId: userId,
+      userId,
       text: searchFor,
-      img: img,
+      img,
     });
     if (SlackMsg) {
       handleIntegration(userId, searchFor, img);
@@ -18,6 +18,6 @@ export const handleSlack = async (userId: string, searchFor: string) => {
       return res;
     }
   } catch (err) {
-    //  res.status(400);
+    throw new Error("ERROE!");
   }
 };

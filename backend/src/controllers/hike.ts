@@ -11,12 +11,9 @@ export const addhike = async (
   res: Response,
   next: NextFunction
 ) => {
+  const { img, title, text } = req.body;
   try {
-    const result = await handleaddhike(
-      req.body.img,
-      req.body.title,
-      req.body.text
-    );
+    const result = await handleaddhike(img, title, text);
     if (result) {
       res.status(result.status);
       res.send(result.msg);
@@ -31,11 +28,10 @@ export const updateHikeTitle = async (
   res: Response,
   next: NextFunction
 ) => {
+  const { title } = req.body;
+  const { hikeId } = req.params;
   try {
-    const result = await handleupdateHikeTitle(
-      req.params.hikeId,
-      req.body.title
-    );
+    const result = await handleupdateHikeTitle(hikeId, title);
     if (result) {
       res.status(result.status);
       res.send(result.msg);
@@ -50,14 +46,15 @@ export const removeHike = async (
   res: Response,
   next: NextFunction
 ) => {
+  const { hikeId } = req.params;
   try {
-    const result = await handleremoveHike(req.params.hikeId);
+    const result = await handleremoveHike(hikeId);
     if (result) {
       res.status(result.status);
       res.send(result.msg);
     }
   } catch (err) {
-    next(err);
+    next(res.status);
   }
 };
 

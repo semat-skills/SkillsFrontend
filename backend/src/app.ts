@@ -17,6 +17,7 @@ import contactRouter from "./routes/contact";
 import slackRouter from "./routes/slack";
 import cors from "cors";
 import Contact from "./models/contact.model";
+import bodyParser from "body-parser";
 
 const Usermodel = User;
 const Hikemodel = Hike;
@@ -25,6 +26,10 @@ const Contactmodel = Contact;
 config();
 
 const app: Application = express();
+
+const router = express.Router();
+
+router.use(bodyParser.json());
 
 app.use(express.json());
 app.use(cors());

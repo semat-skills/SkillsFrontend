@@ -6,13 +6,15 @@ export const addContact = async (
   res: Response,
   next: NextFunction
 ) => {
+  const { fullname, email, title, text } = req.body.values;
+  const { searchFor } = req.body;
   try {
     const result = await handleaddContact(
-      req.body.values.fullname,
-      req.body.values.email,
-      req.body.values.title,
-      req.body.values.text,
-      req.body.searchFor
+      fullname,
+      email,
+      title,
+      text,
+      searchFor
     );
     if (result) {
       res.status(result.status);
